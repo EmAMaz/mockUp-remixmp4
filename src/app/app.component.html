@@ -1,0 +1,97 @@
+<router-outlet></router-outlet>
+<!-- <header class="container__header">
+  <div class="container__menu">
+    <img class="container__menu-menu" src="../assets/responsive/menu-svgrepo-com.svg" (click)="openMenu()" alt="">
+  </div>
+  <nav class="header__nav" >
+    <ul class="header__nav-enlaces" *ngIf="isOpen">
+      <li><a class="header__nav-enlaces-a">inicio</a></li>
+      <li><a class="header__nav-enlaces-a" (click)="openModal()" (click)="scrollToTop()">registrarse</a></li>
+      <li><a class="header__nav-enlaces-a">nosotros</a></li>
+      <li><a class="header__nav-enlaces-a">membresia</a></li>
+      <li><a class="header__nav-enlaces-a">contactanos</a></li>
+    </ul>
+  </nav>
+  <section class="container__titulo" data-aos="fade-up" data-aos-delay="400">
+    <h1 class="titulo__primero">los mejores videos remixes</h1>
+    <h2 class="titulo__segundo">actualizate ya!</h2>
+    <button class="titulo__button-ingresar" (click)="openModalAcceso()" (click)="scrollToTop()">ingresar</button>
+  </section>
+</header>
+<main>
+  <section class="container__sliderMain">
+
+    <div class="container__sliderMain-swiper">
+      <swiper
+      [config]="config"
+      #swiper
+      [virtual]="true"
+      [slideToClickedSlide]="true"
+      >
+      <ng-template swiperSlide *ngFor="let image of sliderImagesOne"><div class="container__sliderMain-swiper-container"><img class="container__sliderMain-swiper-container-image" [src]="image" alt=""></div></ng-template>
+      </swiper>
+      <div class="container__sliderMain-swiper-buttons">
+        <div class="container__sliderMain-swiper-buttons-btn" [ngClass]="{'background__slider-btn': btnSliderMain === false}" (click)="slidePrev()"></div>
+        <div class="container__sliderMain-swiper-buttons-btn" [ngClass]="{'background__slider-btn': btnSliderMain === true}" (click)="slideNext()"></div>
+      </div>
+    </div>    
+  </section>
+  <section class="container__opiniones">
+      <div class="opiniones__titulo">
+      <h3 class="opiniones__titulo-first">¿Que opinan de nosotros</h3>
+      <h3 class="opiniones__titulo-second">artistas, productores y djs?</h3>
+      </div>
+
+      <div class="container__slider-swiper">
+
+        <swiper
+        [config]="config"
+        #swiperDJ
+        [virtual]="true"
+        [spaceBetween]="50"
+        >
+        <ng-template swiperSlide *ngFor="let image of sliderImagesDj">
+          
+          <div class="card">
+            <img class="card__image" [src]="image" alt="">
+            <img class="card__image-signos" src="../assets/signos.png" alt="">
+            <p class="card__description">"He conocido la plataforma RemixMP4 y la verdad encuentro todo lo necesario para ejercer mi labor de DJ, me ha sido de gran ayuda y la utilizo a diario"</p>
+            <p class="card__description-dj">DJ Lorin</p>
+          </div>
+        </ng-template>
+
+        </swiper>
+
+        <div class="container__opiniones-steps" >
+          <div class="container__opiniones-steps-steps" *ngFor="let i of btnSliderDj" [ngClass]="{'background__slider-btn': i.id === selectedButton}" (click)="selectButtonDj(i.id)"></div>
+        </div>
+      </div>  
+
+        
+  </section>
+  <section class="container__contacto">
+    <div class="contacto__image-dj">
+      <img class="contacto__image-dj-image" src="../assets/dj.png" alt="">
+    </div>
+    <div class="contacto__formulario">
+      <h3 class="formulario__titulo">contactanos</h3>
+      <form class="contacto__formulario-formulario" action="">
+        
+        <input class="contacto__formulario-formulario-campos"type="text" placeholder="Nombre">
+        <input class="contacto__formulario-formulario-campos" type="text" placeholder="E-mail">
+        <textarea class="contacto__formulario-formulario-campos" name="" id="" cols="30" rows="10" placeholder="Consulta"></textarea>
+      
+        <button  class="contacto__formulario-formulario-btn" >Enviar</button>
+      </form>  
+    </div>
+  </section>
+</main>
+<app-footer></app-footer>
+
+<div class="container__modal" *ngIf="modalShow === true" data-aos="fade-down" data-aos-delay="200">
+  <app-modal></app-modal>
+</div>
+<div class="container__modal" *ngIf="modalShowAcceso === true" data-aos="fade-down" data-aos-delay="200">
+  <app-modal-acceso></app-modal-acceso>
+</div> -->
+

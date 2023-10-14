@@ -1,0 +1,20 @@
+<div class="container__modal" [ngClass]="{'background__slider-btn': modalShow === true}">
+    <div class="container__modal-body">
+        <div class="contacto__formulario">
+            
+            <form class="contacto__formulario-formulario" action="">
+              <img class="contacto__formulario-formulario-times__close" (click)="closeModalAcceso()" src="../../../assets/times-close.svg" alt="">
+              <h3 class="formulario__titulo">Acceso</h3>
+              <input class="contacto__formulario-formulario-campos"type="text" placeholder="Email">
+              <input class="contacto__formulario-formulario-campos" type="text" placeholder="Contraseña">
+              <p class="contacto__formulario-formulario-passwordP">Olvidé mi contraseña</p>
+              <button class="contacto__formulario-formulario-btn" >Acceder</button>
+              <div class="container__registrate">
+                <h4 class="contacto__formulario-formulario-registrate">¿Eres nuevo?</h4>
+                <h4 class="contacto__formulario-formulario-registrate contacto__formulario-formulario-registrate-registrate">Resgistrate</h4>
+              </div>
+              
+            </form>  
+          </div>
+    </div>
+</div>

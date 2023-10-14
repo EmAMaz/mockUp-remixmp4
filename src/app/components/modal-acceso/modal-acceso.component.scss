@@ -1,0 +1,175 @@
+.container__modal{
+    width: 100%;
+    min-height: 100%;
+    background-color: #1313132c;
+    position: absolute;
+    top: 0;
+    z-index: 999999999;
+    transition: all 8s ease-in;
+    .container__modal-body{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        background-color: #1313132c;
+        align-items: center;
+        &titulo{
+            display: flex;
+            justify-content: center;
+        }
+    
+        .contacto__formulario{
+            display: flex;
+            flex-direction: column;
+            background-color: #000;
+            .formulario__titulo{
+                color: #fff;
+                display: flex;
+                justify-content: center;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-size: 2em;
+                font-weight: bold;
+                font-family: 'Hanson_Bold';
+                margin-top: 1.2em;
+                padding-bottom: 0;
+                line-height: 0;
+            }
+            .contacto__formulario-formulario{
+                display: grid;
+                gap: 20px;
+                background-color: #000;
+                border: 2px solid #fff;
+                padding: 0.8em 5em 1em 5em;
+                position: relative;
+                    &-times__close{
+                        width: 30px;
+                        position: absolute;
+                        right: 12px;
+                        top: 12px;
+                        cursor: pointer;
+                    }
+                    .contacto__formulario-formulario-campos{
+                        padding: 10px;
+                        border-bottom: 2px solid #fff;
+                        border-left: 2px solid #fff;
+                        background-color: #000;
+                        border-top: none;
+                        border-right: none;
+                        position: relative;
+                        font-family: Arial, Helvetica, sans-serif;
+                        letter-spacing: 1.2px;
+                        color:#d1d1d1;
+                    }
+                    .contacto__formulario-formulario-passwordP{
+                        color: #fff;
+                        margin: 0 auto;
+                        font-family: 'MonumentExtended_Regular';
+                        font-size: 0.9em;
+                        padding-top: 1em;
+                        cursor: pointer;
+                    }
+                    .container__registrate{
+                        display: flex;
+                        flex-direction: row;
+                        justify-self: center;
+                        
+                        .contacto__formulario-formulario-registrate{
+                            color: #fff;
+                            font-family: "MonumentExtended_Regular";
+                            content: "Regístrate";
+                            font-size: 1.2em;
+                            font-family: "MonumentExtended_Regular";
+                            font-weight: 100;
+                            letter-spacing: 2px;
+                            margin: 0 auto;
+                            &-registrate{
+                                color: #ff3100;
+                                font-size: 1.2em;
+                                margin-left: 1em;
+                                font-family: "MonumentExtended_Regular";
+                                font-weight: 100;
+                                letter-spacing: 2px;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                    
+                    
+                    
+                    &-btn{
+                            background: transparent;
+                            border: 2px solid #fff;
+                            color: #fff;
+                            border-radius: 12px;
+                            width: 11em;
+                            padding: 0.8em 0;
+                            display: flex;
+                            justify-content: center;
+                            font-family: "MonumentExtended_Regular";
+                            font-size: 1em;
+                            letter-spacing: 4px;
+                            text-transform: uppercase;
+                            justify-self: flex-end;
+                            margin: 2em 0;
+                            cursor: pointer;
+                            transition: 0.1s ease-out;
+                            justify-self: center;
+                    }
+                    &-btn:hover{
+                            border: 2px solid #ff3100;
+                            color: #ff3100;
+                    }
+                    :focus{
+                            outline:none;
+                            border-bottom: 2px solid #ff3100;
+                            border-left: 2px solid #ff3100;
+                    }
+
+            }
+            
+            
+        }
+    }
+}
+.background__slider-btn{
+    background: #ff3100;
+    transform:scaleX(0.95);
+}
+@media only screen and (min-width: 350px) and (max-width : 767px){
+    
+    .container__modal{
+        .container__modal-body{
+            align-items: normal;
+            padding: 0 10px;
+            .contacto__formulario{
+                width: auto;
+                .contacto__formulario-formulario{
+                    padding: 0.8em 1.1em 4em 1.1em;
+                    justify-content: center;
+                    .formulario__titulo{
+                        margin-top: 1.8em;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-width: 767px) and (max-width : 890px){
+    .container__modal{
+        .container__modal-body{
+            align-items: normal;
+            padding: 0 10px;
+            .contacto__formulario{
+                width: auto;
+                .contacto__formulario-formulario{
+                    padding: 0.8em 1.1em 4em 1.1em;
+                    justify-content: center;
+                    .formulario__titulo{
+                        margin-top: 1.8em;
+                    }
+                }
+            }
+        }
+    }
+}
