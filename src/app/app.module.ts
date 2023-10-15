@@ -11,6 +11,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { ModalAccesoComponent } from './components/modal-acceso/modal-acceso.component';
 import { IndexUserComponent } from './components/index-user/index-user.component';
 import { HomeComponent } from './components/home/home.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { HomeComponent } from './components/home/home.component';
     AppRoutingModule,
     SwiperModule,
     BrowserAnimationsModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatSlideToggleModule,
+    NgxPaginationModule
   ],
   providers: [
     provideAnimations(),
