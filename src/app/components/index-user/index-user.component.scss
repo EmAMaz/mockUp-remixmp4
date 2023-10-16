@@ -125,6 +125,7 @@ h1,h2,h3,h4,h5,p{
                     position: absolute;
                     background: #575757;
                     padding: 0;
+                    top: 3.5em;
                     li{
                         list-style: none;
                         background: #575757;
@@ -408,40 +409,112 @@ h1,h2,h3,h4,h5,p{
             justify-content: space-around;
             width: min-content;
             align-items: center;
-        }
-    }
+            width: 80%;
+            position: relative;
+                &-template{
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    justify-content: center;
+                    
+                    .container__list-pagination-pagination-pagina{
+                        a{  
+                            background: #ff3100;
+                            padding: 0.5em 0.8em;
+                            color: #fff;
+                            border-radius: 200%;
+                            margin: 0 0.5em;
+                            font-weight: 400;
+                            transition: .2s all ease-in;
+                            cursor: pointer;
+                        }
+                        :hover{
+                            background-color: #fff;
+                            color: #000;
+                            font-weight: bold;
+                            cursor: pointer;
+                        }
+                        
+                    }
+                    .container__button-pagination{
+                            .container__button-pagination-btn{
+                                background: #ff3100;
+                                padding: 0.5em 0.8em;
+                                margin: 0 0.5em;
+                                border-radius: 200%;
+                                color: #fff;
+                                font-weight: 400;
+                                transition: .1s all ease-in;
+                                cursor: pointer;
+                            }
+                            :hover{
+                                background-color: #fff;
+                                color: #000;
+                                font-weight: bold;
+                                cursor: pointer;
+                            }
+                        
+                        }
+                        .container__list-pagination-pagination-pagina-active{
+                            background: rgb(255, 255, 255);
+                            padding: 0.5em 0.8em;
+                            border-radius: 200%;
+                            margin: 0 0.5em;
+                            color: #000;
+                        }
+                    }
+                    .pagination-next{
+                        display: flex;
+                        a{
+                            background: #ff3100;
+                            padding: 0.5em 0.8em;
+                            border-radius: 200%;
+                            color: #fff;
+                            font-weight: 400;
+                            margin: 0 0.5em;
+                            cursor: pointer;
+                            transition: 0.1s all ease-in;
+                        }
+                        :nth-child(2){
+                            margin-left: 1em;
+                            cursor: pointer;
+                        }
+                        :hover{
+                            background-color: #fff;
+                            color: #000;
+                            font-weight: bold;
+                            cursor: pointer;
+                        }
+                        .pagination__nav{
+                            &-text{
+                                padding: 0;
+                                margin: 0;
+                                width: max-content;
+                                background: transparent;
+                                position: absolute;
+                                right: 0;
+                            }
+                        }
+                    }
+                }
+            }
 }
-.container__list-pagination-pagination-pagina{
-    background: #ff3100;
-    padding: 0.5em 0.8em;
-    border-radius: 200%;
-    color: #fff;
-    font-weight: 400;
-    a{
-        background-color: transparent;
-    }
-    &:hover{
-        background-color: #fff;
-        color: #000;
-        font-weight: bold;
-        cursor: pointer;
-    }
-}
-.container__list-pagination-pagination-pagina-active{
-    background: rgb(255, 255, 255);
-    padding: 0.5em 0.8em;
-    border-radius: 200%;
-    color: #000;
-    a{
-        background-color: transparent;
-    }
-}
-.container__button-pagination{
-    display: flex;
-    justify-content: space-around;
-    margin: 0 0.3em;
-    cursor: pointer;
-}
+   
+// .container__button-pagination{
+//     display: flex;
+//     justify-content: space-around;
+//     margin: 0 0.3em;
+//     cursor: pointer;
+//     .container__list-pagination-pagination-pagina{
+//         background: #ff3100;
+//         padding: 0.5em 0.8em;
+//         border-radius: 200%;
+//         color: #fff;
+//         font-weight: 400;
+//     }
+// }
+
+
 .container__footer{
     padding-top: 5em;
 }
@@ -463,8 +536,9 @@ h1,h2,h3,h4,h5,p{
             flex-direction: row;
             align-items: center;
             padding: 0;
-            background: #6f6f6f;
+            background: #585858;
             margin: 0;
+            transition: all .1s ease-in;
             li{
                 font-family: 'MonumentExtended_Regular';
                 font-weight: 100;
@@ -477,6 +551,9 @@ h1,h2,h3,h4,h5,p{
                 background: transparent;
             }
         }
+        :hover{
+            background: #6f6f6f;
+        }
     }
 }
 
@@ -485,6 +562,9 @@ h1,h2,h3,h4,h5,p{
         .container__menu{
             display: flex;
             align-self: self-end;
+            img{
+                justify-content: flex-end;
+            }
         }
         .header__nav{
             position: initial;
@@ -498,7 +578,12 @@ h1,h2,h3,h4,h5,p{
                 align-items: flex-start;
                 li:last-child{
                     order: -1;
+                    height: 62px;
                 }
+            }
+            .container__submenu-remixes {
+                width: auto;
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     }
@@ -508,10 +593,69 @@ h1,h2,h3,h4,h5,p{
             grid-template-columns:none;
             height: auto;
             flex-direction: column;
+            width: 100%;
             .container__double-card-recomendados-title{
-                font-size: 1.1em;
+                font-size: 0.9em;
+                letter-spacing: 1px;
+                padding: 1em 0;
+                img{
+                    width: 43px;
+                    height: 25px;
+                }
+            }
+            .container__double-card-recomendados{
+                &-song{
+                    &-second{
+                        display: none;
+                    }
+                }
             }
         }
     }
-    
+    .container__list-song{
+        .container__list-song-card{
+            width: 100%;
+            display: grid;
+            align-items: center;
+            grid-template-columns: 1fr;
+            gap: 1.1em;
+            background: #2c2c2c;
+            margin: 0.2em 0;
+            padding: 0.3em 0;
+            text-align: center;
+            &-item-fecha{
+                flex-direction: column;
+                margin-bottom: 1em;
+                img:nth-child(1){
+                    padding-right: 3em;
+                    padding-bottom: 1em;
+                }
+                img:nth-child(2){
+                    position: absolute;
+                    left: 10em;
+                    padding-top: 5px;
+                }
+            }
+            
+        }
+    }
+    .container__list{
+        margin: 0 1em;
+        .container__list-song-head{
+            &-ul{
+                display: none;
+            }
+        }
+    }
+    .container__list-nav{
+        .container__list-pagination{
+            width: auto;
+            flex-direction: column;
+            align-items: center;
+            .container__list-pagination-pagesCount{
+                position: initial;
+                margin-top: 1.2em;
+            }
+        }
+    }
 }

@@ -822,9 +822,10 @@ export class IndexUserComponent {
   submenuRemixe: boolean = false;
   submenuGeneros: boolean = false;
   submenuActivado: boolean = false;
-  
+  itemForPage: number = 20;
   numberPage: number = 1;
   
+  totalPageList = Math.round(this.songsList.length / this.itemForPage)
   dropdownActive(){
     this.dropdownMenu = !this.dropdownMenu;
   }
@@ -846,7 +847,6 @@ export class IndexUserComponent {
       this.submenuGeneros = false;
     }
   }
-
   @HostListener('document:click', ['$event'])
   documentClick(event: Event): void {
     const target = event.target as HTMLElement;

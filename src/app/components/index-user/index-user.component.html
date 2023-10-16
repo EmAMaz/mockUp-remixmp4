@@ -116,7 +116,7 @@
                 <li>Previo/Descarga</li>
             </ul>
         </div>
-        <div class="container__list-song" *ngFor="let item of songsList | paginate: { itemsPerPage: 20, currentPage: numberPage}" >
+        <div class="container__list-song" *ngFor="let item of songsList | paginate: { itemsPerPage: itemForPage, currentPage: numberPage}" >
             <div class="container__list-song-card">
                 <div class="container__list-song-card-item-fecha">
                     <img src="../../../assets/index-usuario/hot.png" alt="">
@@ -154,35 +154,40 @@
                     </div>
                 </div>
             </div>
-            
         </div>
         <div class="container__list-pagination">
-            <pagination-template class="container__list-pagination-pagination" #p="paginationApi"
-                    (pageChange)="numberPage = $event"
-                    (pageBoundsCorrection)="pageBoundsCorrection.emit($event)">
+            <div class="container__list-pagination-pagination">
+                <pagination-template class="container__list-pagination-pagination-template" #p="paginationApi"
+                (pageChange)="numberPage = $event"
+                (pageBoundsCorrection)="pageBoundsCorrection.emit($event)">
 
                     <div class="pagination-previous container__list-pagination-pagination-pagina" [class.disabled]="p.isFirstPage()" [ngClass]="{'container__list-pagination-pagination-pagina': p.isFirstPage() === false}">
                         <a *ngIf="!p.isFirstPage()" (click)="p.previous()"> < </a>
                     </div>
             
-                    <div class="container__button-pagination" *ngFor="let page of p.pages" [class.current]="p.getCurrent() === page.value">
-                        <a class="container__list-pagination-pagination-pagina" (click)="p.setCurrent(page.value)" *ngIf="p.getCurrent() !== page.value">
+                    <div class="container__list-pagination-pagination-pagina" *ngFor="let page of p.pages" [class.current]="p.getCurrent() === page.value">
+                        <a (click)="p.setCurrent(page.value)" *ngIf="p.getCurrent() !== page.value">
                             {{ page.label }}
                         </a>
                         <div class="container__list-pagination-pagination-pagina-active " *ngIf="p.getCurrent() === page.value">
                             {{ page.label }}
                         </div>
-                       
+                    
                     </div>
                     
-                    <div class="pagination-next " [class.disabled]="p.isLastPage()" [ngClass]="{'container__list-pagination-pagination-pagina': p.isLastPage() === false}" >
-                        <a *ngIf="!p.isLastPage()" (click)="p.next()"> > </a>
-                        <p class="container__list-pagination-pagination-pagina">
-                            58
-                        </p>
+                    <div class="pagination-next" [class.disabled]="p.isLastPage()" [ngClass]="{'container__list-pagination-pagination-pagina': p.isLastPage() === false}" >
+                        <a class="container__list-pagination-pagination-pagina" *ngIf="!p.isLastPage()" (click)="p.next()"> > </a>
+                        <a class="container__list-pagination-pagination-pagina" *ngIf="!p.isLastPage()">{{totalPageList}}</a>
+                        <div class="pagination__nav">
+                            <p class="pagination__nav-text">Página {{p.getCurrent()}} de {{totalPageList}}</p>
+                        </div>
+                        
+                        
                     </div>
-                    
-            </pagination-template>
+                
+                </pagination-template>
+            </div>
+            
         </div>
     </section>
 </main>
