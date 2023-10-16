@@ -35,6 +35,8 @@ export class HomeComponent {
     })
     this.getScreenResolution();
     AOS.init();
+    window.addEventListener('load', AOS.refresh);
+
   }
   ngAfterViewInit() {
     this.renderer.listen('window', 'resize', () => {

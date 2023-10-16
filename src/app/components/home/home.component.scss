@@ -21,6 +21,8 @@
     width: 100%;
     background-image: url(../../../assets/banner.png);
     height: 785px;
+    background-repeat: no-repeat;
+    background-size: cover;
     background-position-y: 4em;
     background-position-x: center;
     
@@ -122,14 +124,14 @@
         }
         .titulo__button-ingresar{
             color: #fff;
-            background: #ff3100;
+            background: transparent;
             width: 209px;
             height: 51px;
             cursor: pointer;
             font-size: 1.3em;
             text-transform: uppercase;
             font-weight: bold;
-            border-radius: 13px;
+            border-radius: 30px;
             border: none;
             margin-top: 2.5em;
             font-family: "Hanson_Bold";
@@ -138,8 +140,9 @@
             justify-content: center;
             transition-duration: .2s;
             transition-timing-function: ease-out;
+            border: 2px solid #ff3100;
             &:hover{
-                transform:translateY(2.5px);
+                transform:translateY(3px);
                 background: rgba(255, 51, 0, 0.952);
             }
         }

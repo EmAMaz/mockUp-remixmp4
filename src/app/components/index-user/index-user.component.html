@@ -7,36 +7,53 @@
         <div class="container__header-logo">
             <img src="../../../assets/index-usuario/logo-index-usuario.png" alt="">
         </div>
-        <ul class="header__nav-enlaces">
-            <li><a class="header__nav-enlaces-a">inicio</a></li>
-            <li><a class="header__nav-enlaces-a">nuevos videos</a></li>
-            <li><a class="header__nav-enlaces-a">remixes</a></li>
-            <li><a class="header__nav-enlaces-a">generos</a></li>
+        <ul class="header__nav-enlaces" (mouseover)="openSubmenu($event)">
+            <li><a class="header__nav-enlaces-a" routerLink="/usuario" (mouseover)="openSubmenu($event)">inicio</a></li>
+            <li><a class="header__nav-enlaces-a" (mouseover)="openSubmenu($event)">nuevos videos</a></li>
+            <li><a class="header__nav-enlaces-a" (mouseover)="openSubmenu($event)">remixes</a></li>
+            <li><a class="header__nav-enlaces-a" (mouseover)="openSubmenu($event)">generos</a></li>
             <li><img src="../../../assets/index-usuario/search.svg" alt=""></li>
         </ul>
-        <div class="container__dropdown">
-            <div class="container__dropdown-dropdown">
+        <!-- SUBMENUS -->
+        <div class="container__submenu-remixes submenu-excluido" *ngIf="submenuRemixe">
+            <div class="container__submenu-remixes-remixes submenu-excluido" *ngFor="let remixers of listRemixers" >
+                <ul class="submenu-excluido">
+                    <li class="submenu-excluido"><img class="submenu-excluido "src={{remixers.image}} alt=""></li>
+                    <li class="submenu-excluido">{{remixers.nombre}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container__submenu-remixes submenu-excluido" *ngIf="submenuGeneros">
+            <div class="container__submenu-remixes-remixes submenu-excluido" *ngFor="let generos of listGeneros">
+                <ul class="submenu-excluido">
+                    <li class="submenu-excluido">{{generos.nombre}}</li>
+                </ul>
+            </div>
+        </div>
+        <!-- SUBMENUS -->
+        <div class="container__dropdown" >
+            <div class="container__dropdown-dropdown" (mouseover)="openSubmenu($event)">
                 <button class="container__dropdown-dropdown-btnToggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" (click)="dropdownActive()">
                     <img src="../../../assets/index-usuario/love.svg" alt="">Mi cuenta
                 </button>
-                <ul class="container__dropdown-dropdown-menu" *ngIf="dropdownMenu">
-                  <li><a class="dropdown-item" href="#"><img src="../../../assets/index-usuario/user-account-profile.svg" alt="">Mi Perfil</a></li>
-                  <li><a class="dropdown-item" href="#"><img src="../../../assets/index-usuario/download.svg" alt="">Descargas</a></li>
-                  <li><a class="dropdown-item" href="#"><img src="../../../assets/index-usuario/credit-card.svg" alt="">Membresia</a></li>
-                  <li><a class="dropdown-item" routerLink="/">Cerrar Cessión</a></li>
+                <ul class="container__dropdown-dropdown-menu submenu-excluido" *ngIf="dropdownMenu">
+                  <li><a class="dropdown-item submenu-excluido" href="#"><img src="../../../assets/index-usuario/user-account-profile.svg" alt="">Mi Perfil</a></li>
+                  <li><a class="dropdown-item submenu-excluido" href="#"><img src="../../../assets/index-usuario/download.svg" alt="">Descargas</a></li>
+                  <li><a class="dropdown-item submenu-excluido" href="#"><img src="../../../assets/index-usuario/membrasias.png" alt="">Membresia</a></li>
+                  <li><a class="dropdown-item submenu-excluido" routerLink="/">Cerrar Sesión</a></li>
                 </ul>
               </div>
         </div>
     </nav>
-  </header>
-  <main>
+</header>
+<main>
     <section class="container__banner"> 
         <img class="container__banner-image" src="../../../assets/index-usuario/banner-index-usuario.png" alt="">
     </section>
     <section class="container__double">
         <div class="container__double-card">
             <div >
-                <h2 class="container__double-card-recomendados-title"><img src="../../../assets/index-usuario/star-top10.svg" alt="">Recomendados</h2>
+                <h2 class="container__double-card-recomendados-title"><img src="../../../assets/index-usuario/recomendados.png" alt="">Recomendados</h2>
                 <div class="container__double-card-recomendados">
                     <div class="container__double-card-recomendados-song" *ngFor="let song of listaSong">
                         <div class="container__double-card-recomendados-song-first">
@@ -50,13 +67,18 @@
                         <div class="container__double-card-recomendados-song-second">
                             <h5>{{song.genero}}</h5>
                             <p>{{song.puntaje}}</p>
+                        </div>
+                        <div class="container__double-card-recomendados-song-three">
+                            <img class="container__double-card-recomendados-song-first-image" src={{song.iconStart}} alt="" >
+                            <img class="container__double-card-recomendados-song-first-image" src={{song.iconDownload}} alt="" >
+                            <img class="container__double-card-recomendados-song-first-image" src={{song.iconLove}} alt="" >
                         </div>
                     </div>
 
                 </div>
             </div>
             <div >
-                <h2 class="container__double-card-recomendados-title"><img src="../../../assets/index-usuario/star-top10.svg" alt="">Recomendados</h2>
+                <h2 class="container__double-card-recomendados-title"><img src="../../../assets/index-usuario/top10.png" alt="" class="image-top10">Top 10 semanal</h2>
                 <div class="container__double-card-recomendados">
                     <div class="container__double-card-recomendados-song" *ngFor="let song of listaSong">
                         <div class="container__double-card-recomendados-song-first">
@@ -70,6 +92,11 @@
                         <div class="container__double-card-recomendados-song-second">
                             <h5>{{song.genero}}</h5>
                             <p>{{song.puntaje}}</p>
+                        </div>
+                        <div class="container__double-card-recomendados-song-three">
+                            <img class="container__double-card-recomendados-song-first-image" src={{song.iconStart}} alt="" >
+                            <img class="container__double-card-recomendados-song-first-image" src={{song.iconDownload}} alt="" >
+                            <img class="container__double-card-recomendados-song-first-image" src={{song.iconLove}} alt="" >
                         </div>
                     </div>
                 </div>
@@ -86,12 +113,14 @@
                 <li>Version</li>
                 <li>BPM</li>
                 <li>Genero</li>
-                <li>Prev/Descarga/D</li>
+                <li>Previo/Descarga</li>
             </ul>
         </div>
         <div class="container__list-song" *ngFor="let item of songsList | paginate: { itemsPerPage: 20, currentPage: numberPage}" >
             <div class="container__list-song-card">
-                <div class="container__list-song-card-item">
+                <div class="container__list-song-card-item-fecha">
+                    <img src="../../../assets/index-usuario/hot.png" alt="">
+                    <img src="../../../assets/index-usuario/new.png" alt="">
                     <p>{{item.fecha}}</p>
                 </div>
                 <div class="container__list-song-card-item">
@@ -113,20 +142,26 @@
                     <p>{{item.genero}}</p>
                 </div>
                 <div class="container__list-song-card-item">
-                    <img src={{item.descarga}} alt="">
+                    <div class="container__list-song-card-item-previoDescarga">
+                        <img src={{item.iconStart}} alt="">
+                        <img src={{item.iconDownload}} alt="">
+                        <img src={{item.iconLove}} alt="">
+                    </div>
+                    <div class="previoDescarga__botonera">
+                        <img src="../../../assets/index-usuario/puntoverde.png" class="puntoVerdeTabla" alt="">
+                        <img src="../../../assets/index-usuario/puntoverde.png" class="puntoVerdeTabla" alt="">
+                        <img src="../../../assets/index-usuario/puntorojo.png" class="puntoVerdeTabla" alt="">
+                    </div>
                 </div>
             </div>
             
         </div>
         <div class="container__list-pagination">
-            <!-- <pagination-controls class="container__list-pagination-pagination" (pageChange)="numberPage = $event">
-
-            </pagination-controls> -->
             <pagination-template class="container__list-pagination-pagination" #p="paginationApi"
                     (pageChange)="numberPage = $event"
                     (pageBoundsCorrection)="pageBoundsCorrection.emit($event)">
 
-                     <div class="pagination-previous container__list-pagination-pagination-pagina" [class.disabled]="p.isFirstPage()" [ngClass]="{'container__list-pagination-pagination-pagina': p.isFirstPage() === false}">
+                    <div class="pagination-previous container__list-pagination-pagination-pagina" [class.disabled]="p.isFirstPage()" [ngClass]="{'container__list-pagination-pagination-pagina': p.isFirstPage() === false}">
                         <a *ngIf="!p.isFirstPage()" (click)="p.previous()"> < </a>
                     </div>
             
@@ -137,19 +172,21 @@
                         <div class="container__list-pagination-pagination-pagina-active " *ngIf="p.getCurrent() === page.value">
                             {{ page.label }}
                         </div>
+                       
                     </div>
-            
+                    
                     <div class="pagination-next " [class.disabled]="p.isLastPage()" [ngClass]="{'container__list-pagination-pagination-pagina': p.isLastPage() === false}" >
                         <a *ngIf="!p.isLastPage()" (click)="p.next()"> > </a>
+                        <p class="container__list-pagination-pagination-pagina">
+                            58
+                        </p>
                     </div>
-                    <div>
-                    </div>
+                    
             </pagination-template>
         </div>
-        
     </section>
-  </main>
-  <section class="container__footer">
+</main>
+<section class="container__footer">
     <app-footer></app-footer>
-  </section>
+</section>
   
