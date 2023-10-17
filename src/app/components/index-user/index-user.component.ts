@@ -849,7 +849,6 @@ export class IndexUserComponent implements OnInit{
   totalPageList = Math.round(this.songsList.length / this.itemForPage)
 
   openSubmenu($event:any){
-    console.log($event.target.innerText);
     if($event.target.innerHTML === "remixes"){
       this.submenuGeneros = false;
       this.dropdownMenu = false;

@@ -11,11 +11,15 @@ import { IndexUserComponent } from './components/index-user/index-user.component
 import { HomeComponent } from './components/home/home.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ModalComponent } from './components/modal/modal.component';
+import { ModalAccesoComponent } from './components/modal-acceso/modal-acceso.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
+    ModalComponent,
+    ModalAccesoComponent,
     IndexUserComponent,
     HomeComponent
   ],
