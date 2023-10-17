@@ -14,6 +14,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ModalComponent } from './components/modal/modal.component';
 import { ModalAccesoComponent } from './components/modal-acceso/modal-acceso.component';
 import { MembresiaUserComponent } from './components/membresia-user/membresia-user.component';
+import { MyUserComponent } from './components/my-user/my-user.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MembresiaUserComponent } from './components/membresia-user/membresia-us
     ModalAccesoComponent,
     IndexUserComponent,
     HomeComponent,
-    MembresiaUserComponent
+    MembresiaUserComponent,
+    MyUserComponent
   ],
   imports: [
     BrowserModule,

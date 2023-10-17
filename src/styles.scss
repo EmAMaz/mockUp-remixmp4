@@ -33,16 +33,25 @@ $maquetacion-angular-theme: mat.define-light-theme((
 // that you are using.
 @include mat.all-component-themes($maquetacion-angular-theme);
 
-/* You can add global styles to this file, and also import other style files */
 @import 'swiper/scss';
 @import 'swiper/scss/navigation';
 @import 'swiper/scss/pagination';
-
-@import 'aos/dist/aos.css'; // You can also use <link> for styles
-// ..
+@import 'aos/dist/aos.css';
 
 *{
     background-color: #000;
+}
+@font-face {
+  font-family: 'Hanson_Bold';
+  src: url('assets/fonts/Hanson-Bold.ttf'); 
+}
+@font-face {
+  font-family: 'MonumentExtended_Regular';
+  src: url('assets/fonts/monumentextended-regular.otf'); 
+}
+@font-face {
+  font-family: 'MonumentExtended_Bold';
+  src: url('assets/fonts/monumentextended-ultrabold.otf'); 
 }
 body{
     padding: 0;

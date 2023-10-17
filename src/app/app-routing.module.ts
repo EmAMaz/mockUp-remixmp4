@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { IndexUserComponent } from './components/index-user/index-user.component';
 import { HomeComponent } from './components/home/home.component';
 import { MembresiaUserComponent } from './components/membresia-user/membresia-user.component';
+import { MyUserComponent } from './components/my-user/my-user.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,9 @@ const routes: Routes = [
   },
   {
     path:'membresia', component:MembresiaUserComponent
+  },
+  {
+    path:'usuario/perfil', component:MyUserComponent
   }
 ];
 
