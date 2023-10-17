@@ -37,7 +37,7 @@
         <!-- SUBMENUS REMIXES Y GENERO-->
         <!-- SUBMENU MI CUENTA -->
         <div class="container__dropdown submenu-excluido">
-            <div class="container__dropdown-dropdown submenu-excluido"  (click)="openSubmenu($event)">
+            <div class="container__dropdown-dropdown submenu-excluido"  (mouseover)="openSubmenu($event)" (click)="openSubmenu($event)">
                 <button class="container__dropdown-dropdown-btnToggle submenu-excluido">
                     <img class="submenu-excluido" src="../../../assets/index-usuario/love.svg" alt="">Mi cuenta
                 </button>
@@ -124,15 +124,16 @@
         </div>
         <div class="container__list-song" *ngFor="let item of songsList | paginate: { itemsPerPage: itemForPage, currentPage: numberPage}" >
             <div class="container__list-song-card">
-                <div class="container__list-song-card-item-fecha">
-                    <div class="container__list-song-card-item-fecha-estampas">
+                <div class="container__list-song-card-item-fecha" >
+                    <div class="container__list-song-card-item-fecha-estampas" >
                         <img src="../../../assets/index-usuario/hot.png" alt="">
                         <img src="../../../assets/index-usuario/new.png" alt="">
                     </div>
                     <p>{{item.fecha}}</p>
                 </div>
-                <div class="container__list-song-card-item">
-                    <img src={{item.remixerLogo}} alt="">
+                <div class="container__list-song-card-item elemento" >
+                    <img class="elemento" src={{item.remixerLogo}} alt="" (mouseover)="mostrarTextoFlotante=true" (mouseout)="mostrarTextoFlotante=false">
+                    <p>{{'DJ Pepe'}}</p>
                 </div>
                 <div class="container__list-song-card-item">
                     <p>{{item.artista}}</p>

@@ -18,6 +18,7 @@ export class IndexUserComponent implements OnInit{
   menuResponsiveActivado: boolean = true;
   itemForPage: number = 20;
   numberPage: number = 1;
+  mostrarTextoFlotante = false;
 
   constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
   isElementVisible = false;
@@ -862,7 +863,7 @@ export class IndexUserComponent implements OnInit{
       this.submenuGeneros = false;
       this.dropdownMenu = true;
     }else{
-      this.dropdownMenu = false;
+      // this.dropdownMenu = false;
       this.submenuRemixe = false;
       this.submenuGeneros = false;
     }
