@@ -1,21 +1,25 @@
 <header class="container__header">
     
     <div class="container__menu">
-      <img class="container__menu-menu" src="../../../assets/responsive/menu-svgrepo-com.svg" alt="">
+      <img class="container__menu-menu" src="../../../assets/responsive/menu-svgrepo-com.svg" (click)="mostrarMenu()" alt="">
     </div>
     <nav class="header__nav" >
         <div class="container__header-logo">
             <img src="../../../assets/index-usuario/logo-index-usuario.png" alt="">
         </div>
-        <ul class="header__nav-enlaces" (mouseover)="openSubmenu($event)">
+        <ul class="header__nav-enlaces" (mouseover)="openSubmenu($event)" *ngIf="menuResponsiveActivado">
             <li><a class="header__nav-enlaces-a" routerLink="/usuario" (mouseover)="openSubmenu($event)">inicio</a></li>
             <li><a class="header__nav-enlaces-a" (mouseover)="openSubmenu($event)">nuevos videos</a></li>
             <li><a class="header__nav-enlaces-a" (mouseover)="openSubmenu($event)">remixes</a></li>
             <li><a class="header__nav-enlaces-a" (mouseover)="openSubmenu($event)">generos</a></li>
             <li><img src="../../../assets/index-usuario/search.svg" alt=""></li>
         </ul>
-        <!-- SUBMENUS -->
+
+        <!-- SUBMENUS REMIXES Y GENERO-->
         <div class="container__submenu-remixes submenu-excluido" *ngIf="submenuRemixe">
+            <div class="container__submenu-remixes-close" *ngIf="menuResponsiveActivado">
+                <img src="../../../assets/index-usuario/times-close.svg" alt="">
+            </div>
             <div class="container__submenu-remixes-remixes submenu-excluido" *ngFor="let remixers of listRemixers" >
                 <ul class="submenu-excluido">
                     <li class="submenu-excluido"><img class="submenu-excluido "src={{remixers.image}} alt=""></li>
@@ -30,10 +34,11 @@
                 </ul>
             </div>
         </div>
-        <!-- SUBMENUS -->
-        <div class="container__dropdown" >
+        <!-- SUBMENUS REMIXES Y GENERO-->
+        <!-- SUBMENU MI CUENTA -->
+        <div class="container__dropdown" *ngIf="menuResponsiveActivado">
             <div class="container__dropdown-dropdown" (mouseover)="openSubmenu($event)">
-                <button class="container__dropdown-dropdown-btnToggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" (click)="dropdownActive()">
+                <button class="container__dropdown-dropdown-btnToggle" (click)="dropdownActive()">
                     <img src="../../../assets/index-usuario/love.svg" alt="">Mi cuenta
                 </button>
                 <ul class="container__dropdown-dropdown-menu submenu-excluido" *ngIf="dropdownMenu">
@@ -44,6 +49,7 @@
                 </ul>
               </div>
         </div>
+        <!-- SUBMENU MI CUENTA -->
     </nav>
 </header>
 <main>
@@ -119,8 +125,10 @@
         <div class="container__list-song" *ngFor="let item of songsList | paginate: { itemsPerPage: itemForPage, currentPage: numberPage}" >
             <div class="container__list-song-card">
                 <div class="container__list-song-card-item-fecha">
-                    <img src="../../../assets/index-usuario/hot.png" alt="">
-                    <img src="../../../assets/index-usuario/new.png" alt="">
+                    <div class="container__list-song-card-item-fecha-estampas">
+                        <img src="../../../assets/index-usuario/hot.png" alt="">
+                        <img src="../../../assets/index-usuario/new.png" alt="">
+                    </div>
                     <p>{{item.fecha}}</p>
                 </div>
                 <div class="container__list-song-card-item">
