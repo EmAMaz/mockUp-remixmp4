@@ -13,6 +13,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ModalComponent } from './components/modal/modal.component';
 import { ModalAccesoComponent } from './components/modal-acceso/modal-acceso.component';
+import { MembresiaUserComponent } from './components/membresia-user/membresia-user.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ModalAccesoComponent } from './components/modal-acceso/modal-acceso.com
     ModalComponent,
     ModalAccesoComponent,
     IndexUserComponent,
-    HomeComponent
+    HomeComponent,
+    MembresiaUserComponent
   ],
   imports: [
     BrowserModule,

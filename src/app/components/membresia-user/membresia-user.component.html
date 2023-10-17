@@ -1,0 +1,33 @@
+<header class="container__header">
+    <div class="container__menu">
+      <img class="container__menu-menu" src="../../../assets/responsive/menu-svgrepo-com.svg" (click)="openMenu()" alt="">
+    </div>
+    <nav class="header__nav" >
+      <ul class="header__nav-enlaces" *ngIf="isOpen">
+        <li><a class="header__nav-enlaces-a" routerLink="/">inicio</a></li>
+        <li><a class="header__nav-enlaces-a" >registrarse</a></li>
+        <li><a class="header__nav-enlaces-a">nosotros</a></li>
+        <li><a class="header__nav-enlaces-a" routerLink="/membresia">membresia</a></li>
+        <li><a class="header__nav-enlaces-a">contactanos</a></li>
+      </ul>
+    </nav>
+</header>
+<section class="section__titulo">
+    <h1 class="section__titulo-titulo">SELECCIONA TU MEMBRESIA</h1>
+    <p class="section__titulo-subtitulo">A la hora de abonar, asegurate que tu paypal sea la misma que tu registro</p>
+</section>
+<section class="section__membresia">
+    <div class="container__membresia" *ngFor="let plan of cardMembresiaList">
+        <div class="container__membresia-card" >
+            <h2 class="container__membresia-card-titulo">{{plan.titulo}}</h2>
+            <ul class="container__membresia-card-items">
+                <li class="container__membresia-card-items-item">{{plan.precio}}</li>
+                <li class="container__membresia-card-items-item">{{plan.tipoPlan}}</li>
+                <ng-container *ngFor="let serviceItem of plan.servicios">
+                    <li class="container__membresia-card-items-item">{{serviceItem}}</li>
+                </ng-container>
+            </ul>
+            <button class="container__membresia-card-button">ADQUIRIR</button>
+        </div>
+    </div>
+</section>

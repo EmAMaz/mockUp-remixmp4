@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { IndexUserComponent } from './components/index-user/index-user.component';
 import { HomeComponent } from './components/home/home.component';
+import { MembresiaUserComponent } from './components/membresia-user/membresia-user.component';
 
 const routes: Routes = [
   {
@@ -9,6 +10,12 @@ const routes: Routes = [
   },
   {
     path:'usuario', component:IndexUserComponent
+  },
+  {
+    path:'usuario/membresia', component:MembresiaUserComponent
+  },
+  {
+    path:'membresia', component:MembresiaUserComponent
   }
 ];
 
