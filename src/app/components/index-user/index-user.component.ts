@@ -1,20 +1,44 @@
-import { Component, EventEmitter, Input, Output, Renderer2, ElementRef, HostListener } from '@angular/core';
+import { Component, EventEmitter, Input, Output, Renderer2, ElementRef, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-index-user',
   templateUrl: './index-user.component.html',
   styleUrls: ['./index-user.component.scss']
 })
-export class IndexUserComponent {
+export class IndexUserComponent implements OnInit{
   @Input() id!: string;
   @Input() maxSize!: number;
   @Output() pageChange!: EventEmitter<number>;
   @Output() pageBoundsCorrection!: EventEmitter<number>;
   @Output() clickOutside = new EventEmitter<void>();
+  dropdownMenu: boolean = false;
+  submenuRemixe: boolean = false;
+  submenuGeneros: boolean = false;
+  submenuActivado: boolean = false;
+  menuResponsiveActivado: boolean = true;
+  itemForPage: number = 20;
+  numberPage: number = 1;
 
-  constructor(private elementRef: ElementRef) { }
+  constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
   isElementVisible = false;
+  screenResolution?: string;
 
+  ngOnInit(){
+    this.getScreenResolution();
+  }
+  ngAfterViewInit() {
+    this.renderer.listen('window', 'resize', () => {
+      this.getScreenResolution();
+    });
+  }
+  getScreenResolution() {
+    this.screenResolution = `${window.innerWidth} x ${window.innerHeight}`;
+    if(window.innerWidth < 770){
+      this.menuResponsiveActivado = false;
+    }else{
+      this.menuResponsiveActivado = true;
+    }
+  }
   listaSong = [] = [
     { 
       image:"../../../assets/index-usuario/caratularecomendadosytop10.png",
@@ -818,20 +842,13 @@ export class IndexUserComponent {
     {nombre: "Rock"},
     {nombre: "Cumbia"}
   ]
-  dropdownMenu: boolean = false;
-  submenuRemixe: boolean = false;
-  submenuGeneros: boolean = false;
-  submenuActivado: boolean = false;
-  menuResponsiveActivado: boolean = false;
-  itemForPage: number = 20;
-  numberPage: number = 1;
+ 
   
 
   totalPageList = Math.round(this.songsList.length / this.itemForPage)
-  dropdownActive(){
-    this.dropdownMenu = !this.dropdownMenu;
-  }
+
   openSubmenu($event:any){
+    console.log($event.target.innerText);
     if($event.target.innerHTML === "remixes"){
       this.submenuGeneros = false;
       this.dropdownMenu = false;
@@ -845,6 +862,7 @@ export class IndexUserComponent {
       this.submenuGeneros = false;
       this.dropdownMenu = true;
     }else{
+      this.dropdownMenu = false;
       this.submenuRemixe = false;
       this.submenuGeneros = false;
     }

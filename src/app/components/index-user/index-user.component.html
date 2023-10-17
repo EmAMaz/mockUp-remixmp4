@@ -17,7 +17,7 @@
 
         <!-- SUBMENUS REMIXES Y GENERO-->
         <div class="container__submenu-remixes submenu-excluido" *ngIf="submenuRemixe">
-            <div class="container__submenu-remixes-close" *ngIf="menuResponsiveActivado">
+            <div class="container__submenu-remixes-close">
                 <img src="../../../assets/index-usuario/times-close.svg" alt="">
             </div>
             <div class="container__submenu-remixes-remixes submenu-excluido" *ngFor="let remixers of listRemixers" >
@@ -36,16 +36,16 @@
         </div>
         <!-- SUBMENUS REMIXES Y GENERO-->
         <!-- SUBMENU MI CUENTA -->
-        <div class="container__dropdown" *ngIf="menuResponsiveActivado">
-            <div class="container__dropdown-dropdown" (mouseover)="openSubmenu($event)">
-                <button class="container__dropdown-dropdown-btnToggle" (click)="dropdownActive()">
-                    <img src="../../../assets/index-usuario/love.svg" alt="">Mi cuenta
+        <div class="container__dropdown submenu-excluido">
+            <div class="container__dropdown-dropdown submenu-excluido"  (click)="openSubmenu($event)">
+                <button class="container__dropdown-dropdown-btnToggle submenu-excluido">
+                    <img class="submenu-excluido" src="../../../assets/index-usuario/love.svg" alt="">Mi cuenta
                 </button>
                 <ul class="container__dropdown-dropdown-menu submenu-excluido" *ngIf="dropdownMenu">
-                  <li><a class="dropdown-item submenu-excluido" href="#"><img src="../../../assets/index-usuario/user-account-profile.svg" alt="">Mi Perfil</a></li>
-                  <li><a class="dropdown-item submenu-excluido" href="#"><img src="../../../assets/index-usuario/download.svg" alt="">Descargas</a></li>
-                  <li><a class="dropdown-item submenu-excluido" href="#"><img src="../../../assets/index-usuario/membrasias.png" alt="">Membresia</a></li>
-                  <li><a class="dropdown-item submenu-excluido" routerLink="/">Cerrar Sesión</a></li>
+                  <li class="submenu-excluido"><a class="dropdown-item submenu-excluido"><img src="../../../assets/index-usuario/user-account-profile.svg" alt="" class="submenu-excluido">Mi Perfil</a></li>
+                  <li class="submenu-excluido"><a class="dropdown-item submenu-excluido"><img src="../../../assets/index-usuario/download.svg" class="submenu-excluido" alt="">Descargas</a></li>
+                  <li class="submenu-excluido"><a class="dropdown-item submenu-excluido"><img src="../../../assets/index-usuario/membrasias.png" class="submenu-excluido" alt="">Membresia</a></li>
+                  <li class="submenu-excluido"><a class="dropdown-item submenu-excluido" routerLink="/">Cerrar Sesión</a></li>
                 </ul>
               </div>
         </div>

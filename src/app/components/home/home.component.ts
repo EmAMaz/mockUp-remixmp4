@@ -45,6 +45,7 @@ export class HomeComponent {
   }
   getScreenResolution() {
     this.screenResolution = `${window.innerWidth} x ${window.innerHeight}`;
+    
     if(window.innerWidth < 770){
       this.isOpen = false;
     }else{
