@@ -33,7 +33,7 @@ export class IndexUserComponent implements OnInit{
   }
   getScreenResolution() {
     this.screenResolution = `${window.innerWidth} x ${window.innerHeight}`;
-    if(window.innerWidth < 770){
+    if(window.innerWidth < 1200){
       this.menuResponsiveActivado = false;
     }else{
       this.menuResponsiveActivado = true;

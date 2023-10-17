@@ -514,6 +514,9 @@ h1,h2,h3,h4,h5,p{
     border-top: 2px solid #ff3000;
     top: 4.2em;
     padding: 0.5em;
+    &-close{
+        display: none;
+    }
     &-remixes{
         cursor: pointer;
         ul{
@@ -577,6 +580,7 @@ h1,h2,h3,h4,h5,p{
                 padding: 0;
                 border-bottom: 2px solid #ff3000;
                 .container__submenu-remixes-close{
+                    display: block;
                     grid-column: 1/2;
                     justify-self: end;
                     margin-right: 2em;
@@ -668,6 +672,7 @@ h1,h2,h3,h4,h5,p{
                     .container__list-pagination-pagination-pagina{
                         .pagination__nav{
                             display: none!important;
+                            font-weight: 500;
                             p{
                                 display: none!important;
                             }
@@ -678,4 +683,464 @@ h1,h2,h3,h4,h5,p{
         }
     }
     
+}
+@media only screen and (min-width: 576px) and (max-width : 768px){
+    .container__header{
+        .container__menu{
+            display: flex;
+            align-self: self-end;
+            padding: 0.5em;
+            img{
+                justify-content: flex-end;
+                width: 3.2em;
+                height: 3.2em;
+            }
+        }
+        .header__nav{
+            position: initial;
+            flex-direction: column;
+            .container__header-logo{
+                display: none;
+            }
+            .header__nav-enlaces{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                li:last-child{
+                    order: -1;
+                    height: 62px;
+                }
+            }
+            .container__submenu-remixes {
+                width: 100%;
+                grid-template-columns: repeat(1, 1fr);
+                z-index: 9999;
+                padding: 0;
+                border-bottom: 2px solid #ff3000;
+                .container__submenu-remixes-close{
+                    display: block;
+                    grid-column: 1/2;
+                    justify-self: end;
+                    margin-right: 2em;
+                    margin-top: 0.5em;
+                    background: transparent;
+                    img{
+                        display: flex;
+                        width: 2em;
+                        height: 2em;
+                        background: transparent;
+                    }
+                }
+            }
+            .container__dropdown{
+                position: absolute;
+                top: 5px;
+                left: 5px;
+                height: 62px;
+            }
+        }
+    }
+    .container__banner{
+        border-top: 2px solid #fff;
+        .container__banner-image{
+            width: 100%;
+        }
+    }
+    .container__double{
+        .container__double-card{
+            display: flex;
+            grid-template-columns:none;
+            height: auto;
+            flex-direction: column;
+            width: 100%;
+            .container__double-card-recomendados-title{
+                font-size: 0.9em;
+                letter-spacing: 1px;
+                padding: 1em 0;
+                img{
+                    width: 43px;
+                    height: 25px;
+                }
+            }
+            .container__double-card-recomendados{
+                &-song{
+                    &-second{
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+    .container__list-song{
+        .container__list-song-card{
+            width: 100%;
+            display: grid;
+            align-items: center;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.1em;
+            background: #2c2c2c;
+            margin: 0.2em 0;
+            padding: 0.3em 0;
+            text-align: center;
+            &-item-fecha{
+                flex-direction: column;
+                margin-bottom: 1em;
+                &-estampas{
+                    background: transparent;
+                    img{
+                        padding: 0.7em;
+                    }
+                }
+            }
+            :nth-child(5){
+                display: none;
+            }
+            :nth-child(6){
+                display: none;
+            }
+            :nth-child(7){
+                display: none;
+            }
+            
+        }
+    }
+    .container__list{
+        margin: 0 1em;
+        .container__list-song-head{
+            &-ul{
+                display: none;
+            }
+        }
+        .container__list-pagination{
+            .container__list-pagination-pagination{
+                .container__list-pagination-pagination-template{
+                    .container__list-pagination-pagination-pagina{
+                        .pagination__nav{
+                            display: block!important;
+                            font-weight: 500;
+                            p{
+                                display: block!important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-width: 769px) and (max-width : 991px){
+    .container__header{
+        .container__menu{
+            display: flex;
+            align-self: self-end;
+            padding: 0.5em;
+            img{
+                justify-content: flex-end;
+                width: 3.2em;
+                height: 3.2em;
+            }
+        }
+        .header__nav{
+            position: initial;
+            flex-direction: column;
+            .container__header-logo{
+                display: none;
+            }
+            .header__nav-enlaces{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                li:last-child{
+                    order: -1;
+                    height: 62px;
+                }
+            }
+            .container__submenu-remixes {
+                width: 100%;
+                grid-template-columns: repeat(1, 1fr);
+                z-index: 9999;
+                padding: 0;
+                border-bottom: 2px solid #ff3000;
+                .container__submenu-remixes-close{
+                    display: block;
+                    grid-column: 1/2;
+                    justify-self: end;
+                    margin-right: 2em;
+                    margin-top: 0.5em;
+                    background: transparent;
+                    img{
+                        display: flex;
+                        width: 2em;
+                        height: 2em;
+                        background: transparent;
+                    }
+                }
+            }
+            .container__dropdown{
+                position: absolute;
+                top: 5px;
+                left: 5px;
+                height: 62px;
+            }
+        }
+    }
+    .container__banner{
+        border-top: 2px solid #fff;
+        .container__banner-image{
+            width: 100%;
+        }
+    }
+    .container__double{
+        .container__double-card{
+            display: flex;
+            grid-template-columns:none;
+            height: auto;
+            flex-direction: column;
+            width: 100%;
+            .container__double-card-recomendados-title{
+                font-size: 0.9em;
+                letter-spacing: 1px;
+                padding: 1em 0;
+                img{
+                    width: 43px;
+                    height: 25px;
+                }
+            }
+            .container__double-card-recomendados{
+                &-song{
+                    &-second{
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+    .container__list-song{
+        .container__list-song-card{
+            width: 100%;
+            display: grid;
+            align-items: center;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.1em;
+            background: #2c2c2c;
+            margin: 0.2em 0;
+            padding: 0.3em 0;
+            text-align: center;
+            &-item-fecha{
+                flex-direction: column;
+                margin-bottom: 1em;
+                &-estampas{
+                    background: transparent;
+                    img{
+                        padding: 0.7em;
+                    }
+                }
+            }
+            :nth-child(5){
+                display: none;
+            }
+            :nth-child(6){
+                display: none;
+            }
+            :nth-child(7){
+                display: none;
+            }
+            
+        }
+    }
+    .container__list{
+        margin: 0 1em;
+        .container__list-song-head{
+            &-ul{
+                display: none;
+            }
+        }
+        .container__list-pagination{
+            .container__list-pagination-pagination{
+                .container__list-pagination-pagination-template{
+                    .container__list-pagination-pagination-pagina{
+                        .pagination__nav{
+                            display: block!important;
+                            font-weight: 500;
+                            p{
+                                display: block!important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-width: 992px) and (max-width : 1199px){
+    .container__header{
+        .container__menu{
+            display: flex;
+            align-self: self-end;
+            padding: 0.5em;
+            img{
+                justify-content: flex-end;
+                width: 3.2em;
+                height: 3.2em;
+            }
+        }
+        .header__nav{
+            position: initial;
+            flex-direction: column;
+            .container__header-logo{
+                display: none;
+            }
+            .header__nav-enlaces{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                li:last-child{
+                    order: -1;
+                    height: 62px;
+                }
+            }
+            .container__submenu-remixes{
+                width: 100%;
+                grid-template-columns: repeat(1, 1fr);
+                z-index: 9999;
+                padding: 0;
+                border-bottom: 2px solid #ff3000;
+                
+            }
+            .container__dropdown{
+                position: absolute;
+                top: 5px;
+                left: 5px;
+                height: 62px;
+            }
+        }
+    }
+    .container__banner{
+        border-top: 2px solid #fff;
+        .container__banner-image{
+            width: 100%;
+        }
+    }
+    .container__double{
+        .container__double-card{
+            display: flex;
+            grid-template-columns:none;
+            height: auto;
+            flex-direction: column;
+            width: 100%;
+            .container__double-card-recomendados-title{
+                font-size: 0.9em;
+                letter-spacing: 1px;
+                padding: 1em 0;
+                img{
+                    width: 43px;
+                    height: 25px;
+                }
+            }
+            .container__double-card-recomendados{
+                &-song{
+                    &-second{
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+    .container__list-song{
+        .container__list-song-card{
+            width: 100%;
+            display: grid;
+            align-items: center;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.1em;
+            background: #2c2c2c;
+            margin: 0.2em 0;
+            padding: 0.3em 0;
+            text-align: center;
+            &-item-fecha{
+                flex-direction: column;
+                margin-bottom: 1em;
+                &-estampas{
+                    background: transparent;
+                    img{
+                        padding: 0.7em;
+                    }
+                }
+            }
+            :nth-child(5){
+                display: none;
+            }
+            :nth-child(6){
+                display: none;
+            }
+            :nth-child(7){
+                display: none;
+            }
+            
+        }
+    }
+    .container__list{
+        margin: 0 1em;
+        .container__list-song-head{
+            &-ul{
+                display: none;
+            }
+        }
+        .container__list-pagination{
+            .container__list-pagination-pagination{
+                .container__list-pagination-pagination-template{
+                    .container__list-pagination-pagination-pagina{
+                        .pagination__nav{
+                            display: block!important;
+                            font-weight: 500;
+                            p{
+                                display: block!important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1490px){
+    .container__header{
+        .header__nav{
+            .container__header-logo{
+                img{
+                    width: 115px;
+                    height: 45px;
+                }
+            }
+            .container__submenu-remixes{
+                position: absolute;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+                background: #585858;
+                border-top: 2px solid #ff3000;
+                top: 4.2em;
+                width: auto;
+                padding: 0.5em;
+            }
+        }
+    }
+    .container__double{
+        .container__double-card{
+            gap: 1em;
+        }
+    }
+    .container__list{
+        .container__list-song{
+            .container__list-song-card{
+                .container__list-song-card-item-fecha{
+                    .container__list-song-card-item-fecha-estampas{
+                        background: transparent;
+                    }
+                }
+            }
+        }
+    }
+
 }
