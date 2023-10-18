@@ -35,13 +35,6 @@
                     </div>
                 </div>
             </div>
-            <!-- <div>
-                <div>
-                    <label class="container__aside-aside-label">Mi Plan Actual:<input class="container__aside-aside-input" type="text" id="Name" name="Name" value="Plan basico"/></label>
-                    <button>Mejorar</button>
-                </div>
-            </div> -->
-            
             <div class="container__redes">
                 <label class="container__redes-titulo" for="Name">Registra url de tus Redes:</label>
                 <div class="container__redes-redes">
@@ -59,21 +52,31 @@
     </div>
     <div class="container__cuenta">
         <div class="container__cuenta-card" >
-            <ul class="container__cuenta-card-fila">
+            <ul class="container__cuenta-card-fila" [ngClass]="{'ajustContainer': colActiva === false}">
                 <li class="container__cuenta-card-fila-col">Fecha</li>
                 <li class="container__cuenta-card-fila-col">N°Orden</li>
-                <li class="container__cuenta-card-fila-col">Plan Membresia</li>
-                <li class="container__cuenta-card-fila-col">Pago</li>
-                <li class="container__cuenta-card-fila-col">Precio total</li>
+                <li class="container__cuenta-item-fila-col" (click)="selectCol($event)" *ngIf="filterOption">
+                    {{selectedItem}}
+                    <div class="dropdown__container" *ngIf="dropdownActive">
+                        <ul class="dropdown__container-ul">
+                            <li class="dropdown__container-ul-item" (click)="selectCol($event)">Plan Membresia</li>
+                            <li class="dropdown__container-ul-item" (click)="selectCol($event)">Pago</li>
+                            <li class="dropdown__container-ul-item" (click)="selectCol($event)">Precio total</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="container__cuenta-card-fila-col" *ngIf="colActiva">Plan Membresia</li>
+                <li class="container__cuenta-card-fila-col" *ngIf="colActiva">Pago</li>
+                <li class="container__cuenta-card-fila-col" *ngIf="colActiva">Precio total</li>
             </ul>
         </div>
         <div class="container__cuenta-item">
-            <ul class="container__cuenta-item-fila" *ngFor="let i of itemListUser">
+            <ul class="container__cuenta-item-fila" *ngFor="let i of itemListUser" [ngClass]="{'ajustContainer': colActiva === false}">
                 <li class="container__cuenta-item-fila-col">{{i.fecha}}</li>
                 <li class="container__cuenta-item-fila-col">{{i.nOrder}}</li>
-                <li class="container__cuenta-item-fila-col">{{i.membresia}}</li>
-                <li class="container__cuenta-item-fila-col">{{i.pago}}</li>
-                <li class="container__cuenta-item-fila-col">{{i.precioTotal}}</li>
+                <li class="container__cuenta-item-fila-col" [ngClass]="{'hideenColumn': membresiaActive === false}">{{i.membresia}}</li>
+                <li class="container__cuenta-item-fila-col" [ngClass]="{'hideenColumn': pagoActive === false}">{{i.pago}}</li>
+                <li class="container__cuenta-item-fila-col" [ngClass]="{'hideenColumn': precioActive === false}">{{i.precioTotal}}</li>
             </ul>
         </div>
     </div>

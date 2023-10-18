@@ -47,6 +47,18 @@
     }
 }
 
+@media only screen and (max-width: 380px) {
+    .footer{
+        .text-copyright{
+            text-align: -webkit-center;
+        }
+        .footer__enlaces{
+            display: grid!important;
+            gap: 15px;
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
 @media only screen and (max-width: 767px) {
     .footer{
         .footer__redes{

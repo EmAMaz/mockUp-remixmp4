@@ -192,8 +192,6 @@
                 }
             }
         }
-        
-            
     }
     .container__cuenta{
         overflow: hidden;
@@ -219,6 +217,9 @@
                     color: #fff;
                     justify-self: center;
                 }
+                :nth-child(3){
+                    position: relative;
+                }
             }
         }
         &-item{
@@ -229,7 +230,6 @@
             padding: 0 1em;
             border-top: 1px solid #f00;
             overflow-y: scroll;
-            // height: 447px;
             height: calc(53px * 8);
             &-fila{
                 display: grid;
@@ -264,6 +264,32 @@
 .container__footer{
     margin-top: 5em;
 }
+.filterColumn{
+    display: none;
+}
+.ajustContainer{
+    grid-template-columns: repeat(3, 1fr)!important;
+}
+.hideenColumn{
+    display: none;
+}
+.dropdown__container{
+    position: absolute;
+    top: 30px;
+    background: #fff;
+    color: #000;
+    &-ul{
+        display: grid;
+        gap: 5px;
+        padding: 0;
+        background: transparent;
+        &-item{
+            background: transparent;
+            list-style: none;
+        }
+    }
+}
+
 @media only screen and (max-width: 400px) {
     .container__header{
         .container__menu{
@@ -306,8 +332,25 @@
         }
     }
     .section__cuenta{
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         padding: 0 1em;
+        height: auto;
+        .container__cuenta{
+            .container__cuenta-item{
+                height: auto;
+            }
+        }
+        .container__aside{
+            padding: 1.5em 1.5em;
+            .container__aside-aside{
+                .container__aside-aside-contraseña{
+                    label{
+                        width: 50%;
+                    }
+                }
+            }
+        }
     }
 }
 @media only screen and (min-width: 400px) and (max-width: 802px) {
@@ -350,8 +393,18 @@
         }
     }
     .section__cuenta{
-        grid-template-columns: 1fr;
-        padding: 0 2em;
+        display: flex;
+        flex-direction: column;
+        padding: 0 1em;
+        height: auto;
+        .container__aside{
+            padding: 1.5em 1.5em;
+        }
+        .container__cuenta{
+            .container__cuenta-item{
+                height: auto;
+            }
+        }
     }
 }
 @media only screen and (min-width: 800px) and (max-width: 1165px) {
@@ -362,11 +415,20 @@
         }
     }
     .section__cuenta{
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        flex-direction: column;
+        padding: 0 1em;
+        height: auto;
+        .container__cuenta{
+            .container__cuenta-item{
+                height: auto;
+            }
+        }
     }
 }
 @media only screen and (min-width: 1165px) and (max-width: 1510px) {
     .section__cuenta{
         grid-template-columns: repeat(3, 1fr);
+        padding: 0 1em;
     }
 }

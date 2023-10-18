@@ -42,7 +42,7 @@
                     <img class="submenu-excluido" src="../../../assets/index-usuario/love.svg" alt="">Mi cuenta
                 </button>
                 <ul class="container__dropdown-dropdown-menu submenu-excluido" *ngIf="dropdownMenu">
-                  <li class="submenu-excluido" routerLink="perfil"><a class="dropdown-item submenu-excluido"><img src="../../../assets/index-usuario/user-account-profile.svg" alt="" class="submenu-excluido">Mi Perfil</a></li>
+                  <li class="submenu-excluido" routerLink="perfil"><a class="dropdown-item submenu-excluido"><img src="../../../assets/index-usuario/user-account-profile.svg" alt="" class="submenu-excluido" >Mi Perfil</a></li>
                   <li class="submenu-excluido"><a class="dropdown-item submenu-excluido"><img src="../../../assets/index-usuario/download.svg" class="submenu-excluido" alt="">Descargas</a></li>
                   <li class="submenu-excluido" routerLink="membresia"><a class="dropdown-item submenu-excluido"><img src="../../../assets/index-usuario/membrasias.png" class="submenu-excluido" alt="">Membresia</a></li>
                   <li class="submenu-excluido"><a class="dropdown-item submenu-excluido" routerLink="/">Cerrar Sesión</a></li>
@@ -187,16 +187,12 @@
                     <div class="pagination-next" [class.disabled]="p.isLastPage()" [ngClass]="{'container__list-pagination-pagination-pagina': p.isLastPage() === false}" >
                         <a class="container__list-pagination-pagination-pagina" *ngIf="!p.isLastPage()" (click)="p.next()"> > </a>
                         <a class="container__list-pagination-pagination-pagina" *ngIf="!p.isLastPage()">{{totalPageList}}</a>
-                        <div class="pagination__nav">
-                            <p class="pagination__nav-text">Página {{p.getCurrent()}} de {{totalPageList}}</p>
-                        </div>
-                        
-                        
                     </div>
-                
                 </pagination-template>
+                <div class="pagination__nav">
+                    <p class="pagination__nav-text">Página {{p.getCurrent()}} de {{totalPageList}}</p>
+                </div>
             </div>
-            
         </div>
     </section>
 </main>

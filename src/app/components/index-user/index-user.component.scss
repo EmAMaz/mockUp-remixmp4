@@ -470,6 +470,7 @@ h1,h2,h3,h4,h5,p{
                     display: flex;
                     justify-content: space-around;
                     align-items: center;
+                    width: 100%;
                     justify-content: center;
                     
                     .container__list-pagination-pagination-pagina{
@@ -482,8 +483,9 @@ h1,h2,h3,h4,h5,p{
                             font-weight: 400;
                             transition: .2s all ease-in;
                             cursor: pointer;
+                            
                         }
-                        :hover{
+                        :hover:not(p){
                             background-color: #fff;
                             color: #000;
                             font-weight: bold;
@@ -518,40 +520,14 @@ h1,h2,h3,h4,h5,p{
                             color: #000;
                         }
                     }
-                    .pagination-next{
-                        display: flex;
-                        a{
-                            background: #ff3100;
-                            padding: 0.5em 0.8em;
-                            border-radius: 200%;
-                            color: #fff;
-                            font-weight: 400;
-                            margin: 0 0.5em;
-                            cursor: pointer;
-                            transition: 0.1s all ease-in;
-                        }
-                        :nth-child(2){
-                            margin-left: 1em;
-                            cursor: pointer;
-                        }
-                        :hover{
-                            background-color: #fff;
-                            color: #000;
-                            font-weight: bold;
-                            cursor: pointer;
-                        }
-                        .pagination__nav{
-                            &-text{
-                                padding: 0;
-                                margin: 0;
-                                width: max-content;
-                                background: transparent;
-                                position: absolute;
-                                right: 0;
-                                top: 0;
-                                bottom: 0;
-                            }
-                        }
+                }
+                .pagination__nav{
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    right: 0;
+                    p{
+                        background: transparent;
                     }
                 }
     }
@@ -601,7 +577,7 @@ h1,h2,h3,h4,h5,p{
     }
 }
 
-@media only screen and (min-width: 330px) and (max-width: 576px){
+@media only screen and (min-width: 230px) and (max-width: 576px){
     .container__header{
         .container__menu{
             display: flex;
@@ -723,21 +699,18 @@ h1,h2,h3,h4,h5,p{
         }
         .container__list-pagination{
             .container__list-pagination-pagination{
-                .container__list-pagination-pagination-template{
-                    .container__list-pagination-pagination-pagina{
-                        .pagination__nav{
-                            display: none!important;
-                            font-weight: 500;
-                            p{
-                                display: none!important;
-                            }
-                        }
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 2em;
+                grid-template-rows: 1fr 1fr;
+                    .pagination__nav{
+                         position: initial!important;
+                        text-align: center;
+                        font-weight: 500;
                     }
                 }
             }
         }
-    }
-    
 }
 @media only screen and (min-width: 576px) and (max-width : 768px){
     .container__header{
@@ -868,20 +841,18 @@ h1,h2,h3,h4,h5,p{
         }
         .container__list-pagination{
             .container__list-pagination-pagination{
-                .container__list-pagination-pagination-template{
-                    .container__list-pagination-pagination-pagina{
-                        .pagination__nav{
-                            display: block!important;
-                            font-weight: 500;
-                            p{
-                                display: block!important;
-                            }
-                        }
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 2em;
+                grid-template-rows: 1fr 1fr;
+                    .pagination__nav{
+                         position: initial!important;
+                        text-align: center;
+                        font-weight: 500;
                     }
                 }
             }
         }
-    }
 }
 @media only screen and (min-width: 769px) and (max-width : 991px){
     .container__header{
@@ -1012,20 +983,18 @@ h1,h2,h3,h4,h5,p{
         }
         .container__list-pagination{
             .container__list-pagination-pagination{
-                .container__list-pagination-pagination-template{
-                    .container__list-pagination-pagination-pagina{
-                        .pagination__nav{
-                            display: block!important;
-                            font-weight: 500;
-                            p{
-                                display: block!important;
-                            }
-                        }
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 2em;
+                grid-template-rows: 1fr 1fr;
+                    .pagination__nav{
+                         position: initial!important;
+                        text-align: center;
+                        font-weight: 500;
                     }
                 }
             }
         }
-    }
 }
 @media only screen and (min-width: 992px) and (max-width : 1199px){
     .container__header{
@@ -1158,7 +1127,6 @@ h1,h2,h3,h4,h5,p{
         }
     }
 }
-
 @media only screen and (min-width: 1200px) and (max-width: 1490px){
     .container__header{
         .header__nav{

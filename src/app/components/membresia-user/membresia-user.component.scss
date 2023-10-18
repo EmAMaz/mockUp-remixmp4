@@ -10,6 +10,9 @@
     font-family: 'MonumentExtended_Bold';
     src: url('../../../assets/fonts/monumentextended-ultrabold.otf'); 
 }
+*{
+    background: none;
+}
 .container__header{
     color: #fff;
     display: flex;
@@ -21,6 +24,7 @@
         position: fixed;
         width: 100%;
         z-index: 5;
+        background: #000;
         .header__nav-enlaces{
             list-style: none;
             display: flex;
@@ -86,104 +90,111 @@
         }
     }
 }
-.section__titulo{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    margin: 3em 0;
-    &-titulo{
-        font-size: 2.5em;
-        padding: 0;
-        margin: 0;
-        font-family: 'Hanson_Bold';
-        letter-spacing: 1.5px;
+.section__main{
+    background-image: url(../../../assets/my-user/banner-user-page.png);
+    background-size: contain;
+    background-color: currentcolor;
+    .section__titulo{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        padding: 3em 0;
+        &-titulo{
+            font-size: 2.5em;
+            padding: 0;
+            margin: 0;
+            font-family: 'Hanson_Bold';
+            letter-spacing: 1.5px;
+        }
+        &-subtitulo{
+            font-size: 1em;
+            letter-spacing: 2px;
+            font-family: 'MonumentExtended_Regular';
+        }
     }
-    &-subtitulo{
-        font-size: 1em;
-        letter-spacing: 2px;
-        font-family: 'MonumentExtended_Regular';
-    }
-}
-.section__membresia{
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(4,1fr);
-    gap: 4em;
-    padding: 0 5em 5em 5em;
-    .container__membresia{
-        overflow: hidden;
-        &-card{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: #141318;
-            padding: 2em;
-            &-titulo{
-                font-family: 'Hanson_Bold';
-                color: #fff;
-                background: #141318;
-                font-size: 2em;
-            }
-            &-items{
-                align-items: center;
+    .section__membresia{
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(4,1fr);
+        gap: 4em;
+        padding: 0 5em 5em 5em;
+        .container__membresia{
+            overflow: hidden;
+            &-card{
                 display: flex;
                 flex-direction: column;
-                padding: 0;
-                margin: 0;
+                align-items: center;
                 background: #141318;
-                font-weight: 100;
-                &-item{
-                    list-style: none;
-                    font-family: "MonumentExtended_Regular";
+                padding: 2em;
+                &-titulo{
+                    font-family: 'Hanson_Bold';
                     color: #fff;
                     background: #141318;
-                    margin: 0.5em 0;
-                    display: flex;
-                    align-items: center;
-                    letter-spacing: 1.9px;
-                    text-align: center;
-                    font-size: 0.8em;
-                    font-weight: 100;
-                }
-                :nth-child(1){
                     font-size: 2em;
-                    color: #ff0000;
-                    margin: 0;
+                }
+                &-items{
+                    align-items: center;
+                    display: flex;
+                    flex-direction: column;
                     padding: 0;
-                    letter-spacing: 2px;
-                    &::before{
-                        content: "$";
-                        margin-right: 0.2em;
-                        font-size: 0.9em;
+                    margin: 0;
+                    background: #141318;
+                    font-weight: 100;
+                    &-item{
+                        list-style: none;
+                        font-family: "MonumentExtended_Regular";
+                        color: #fff;
+                        background: #141318;
+                        margin: 0.5em 0;
+                        display: flex;
+                        align-items: center;
+                        letter-spacing: 1.9px;
+                        text-align: center;
+                        font-size: 0.8em;
+                        font-weight: 100;
+                    }
+                    :nth-child(1){
+                        font-size: 2em;
+                        color: #ff0000;
+                        margin: 0;
+                        padding: 0;
+                        letter-spacing: 2px;
+                        &::before{
+                            content: "$";
+                            margin-right: 0.2em;
+                            font-size: 0.9em;
+                        }
+                    }
+                    :nth-child(2){
+                        font-size: 1.2em;
+                        letter-spacing: 2px;
+                        margin: 0 0 1em 0;
                     }
                 }
-                :nth-child(2){
+                &-button{
+                    color: #fff;
+                    padding: 1em 0;
+                    width: 100%;
+                    font-family: 'MonumentExtended_Regular';
+                    background: transparent;
+                    border: 1.5px solid #fff;
                     font-size: 1.2em;
+                    font-weight: 100;
                     letter-spacing: 2px;
-                    margin: 0 0 1em 0;
-                }
-            }
-            &-button{
-                color: #fff;
-                padding: 1em 0;
-                width: 100%;
-                font-family: 'MonumentExtended_Regular';
-                background: transparent;
-                border: 1.5px solid #fff;
-                font-size: 1.2em;
-                font-weight: 100;
-                letter-spacing: 2px;
-                margin-top: 1.5em;
-                cursor: pointer;
-                &:hover{
-                    background: #ffffff04;
+                    margin-top: 1.5em;
+                    cursor: pointer;
+                    transition: all .2s ease-in;
+                    &:hover{
+                        background: #ff3100;
+                    }
                 }
             }
         }
     }
 }
+
 @media only screen and (max-width: 400px) {
     .container__header{
         .container__menu{
@@ -202,6 +213,7 @@
             display: block;
             transition: 1s ease-in;
             .header__nav-enlaces{
+                background: #000;
                 flex-direction: column;
                 transition: 1s ease-out;
                 margin-top: 0;
@@ -219,21 +231,24 @@
             
         }
     }
-    .section__titulo{
-        &-titulo{
-            font-size: 2.1em;
-            text-align: -webkit-center;
+    .section__main{
+        .section__titulo{
+            &-titulo{
+                font-size: 2.1em;
+                text-align: -webkit-center;
+            }
+            &-subtitulo{
+                font-size: 0.9em;
+                text-align: -webkit-center;
+                padding: 0 1em;
+            }
         }
-        &-subtitulo{
-            font-size: 0.9em;
-            text-align: -webkit-center;
-            padding: 0 1em;
+        .section__membresia{
+            grid-template-columns: 1fr;
+            padding: 0 2em 5em 2em;
         }
     }
-    .section__membresia{
-        grid-template-columns: 1fr;
-        padding: 0 2em 5em 2em;
-    }
+    
 }
 @media only screen and (min-width: 400px) and (max-width: 802px) {
     .container__header{
@@ -253,6 +268,7 @@
             display: block;
             transition: 1s ease-in;
             .header__nav-enlaces{
+                background: #000;
                 flex-direction: column;
                 transition: 1s ease-out;
                 margin-top: 0;
@@ -268,40 +284,47 @@
             }
         }
     }
-    .section__titulo{
-        &-titulo{
-            font-size: 2.1em;
-            text-align: -webkit-center;
+    .section__main{
+        .section__titulo{
+            &-titulo{
+                font-size: 2.1em;
+                text-align: -webkit-center;
+            }
+            &-subtitulo{
+                font-size: 0.9em;
+                text-align: -webkit-center;
+                padding: 0 1em;
+            }
         }
-        &-subtitulo{
-            font-size: 0.9em;
-            text-align: -webkit-center;
-            padding: 0 1em;
+        .section__membresia{
+            grid-template-columns: 1fr;
+            padding: 0 2em 5em 2em;
         }
-    }
-    .section__membresia{
-        grid-template-columns: 1fr;
-        padding: 0 2em 5em 2em;
     }
 }
 @media only screen and (min-width: 800px) and (max-width: 1165px) {
-    .section__titulo{
-        &-titulo{
-            font-size: 2.1em;
-            text-align: -webkit-center;
+    .section__main{
+        .section__titulo{
+            &-titulo{
+                font-size: 2.1em;
+                text-align: -webkit-center;
+            }
+            &-subtitulo{
+                font-size: 0.9em;
+                text-align: -webkit-center;
+                padding: 0 1em;
+            }
         }
-        &-subtitulo{
-            font-size: 0.9em;
-            text-align: -webkit-center;
-            padding: 0 1em;
+        .section__membresia{
+            grid-template-columns: repeat(2, 1fr);
         }
-    }
-    .section__membresia{
-        grid-template-columns: repeat(2, 1fr);
     }
 }
 @media only screen and (min-width: 1165px) and (max-width: 1510px) {
-    .section__membresia{
-        grid-template-columns: repeat(2, 1fr);
+    .section__main{
+        .section__membresia{
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
+    
 }
