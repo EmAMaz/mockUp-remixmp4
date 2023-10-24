@@ -1,0 +1,59 @@
+<section>
+    <app-menu-responsive-home></app-menu-responsive-home>
+</section>
+<section class="section__dmca">
+    <section class="section__titulo">
+        <h1 class="section__titulo-titulo">INFORMAR UNA RECLAMACIÓN POR INFRACCIÓN DE DERECHOS DE AUTOR</h1>
+        <p class="section__titulo-subtitulo">Remix MP4 respeta a todos los creadores de contenido y se toma muy en serio la infracción de derechos de autor. 
+            Utilice el siguiente formulario para notificarnos su reclamo relacionado con la infracción de su contenido creativo 
+            y propiedad intelectual.</p>
+    </section>
+    <section class="section__primer-formulario"> 
+        <div class="container__info-contacto">
+            <div class="container__info-contacto-titulo">
+                <h2>INFORMACION DE CONTACTO</h2>
+            </div>
+            <form action="" class="container__form">
+                <input type="text" placeholder="Nombre">
+                <input type="text" placeholder="Apellido">
+                <input type="text" placeholder="E-mail">
+                <input type="text" placeholder="Nombre de la Empresa">
+                <input type="text" placeholder="Direccion">
+                <input type="text" placeholder="Codigo Postal">
+                <input type="text" placeholder="Teléfono">
+                <input type="text" placeholder="Relacion con el titular de los derechos de autor">
+            </form>
+        </div>
+        <div class="section__segundo-formulario">
+            <div class="container__info-contacto">
+                <div class="container__info-contacto-titulo">
+                    <h2>CONTENIDO INFRIGIDO</h2>
+                </div>
+                <form action="" class="container__form">
+                    <input type="text" placeholder="Titulo del Contenido">
+                    <input type="text" placeholder="Enlace al Contenido">
+                    <textarea name="" id="" cols="30" rows="1" placeholder="Observaciones Adicionales"></textarea>
+                </form>
+            </div>
+        </div>
+    </section>
+    <section class="section__footer-form">
+        <div class="section__footer-form-container">
+            <h3>Usted certifica las siguientes declaraciones al hacer clic en "Enviar" de su reclamo:</h3>
+            <ul class="section__footer-form-items">
+                <li class="section__footer-form-items-item">Tengo buena fe en que el uso disputado del contenido no está autorizado por el titular de los derechos de autor, el agente, el representante o la ley.</li>
+                <li class="section__footer-form-items-item">Declaro, bajo pena de perjurio, que soy el propietario o un agente autorizado del propietario del contenido supuestamente infringido.</li>
+                <li class="section__footer-form-items-item">Al enviar este reclamo, reconozco y doy mi permiso para compartir mi información de contacto con la supuesta parte infractora.</li>
+            </ul>
+        </div>
+        <div class="section__footer-form-button">
+            <div class="button__enviar">
+                <button>ENVIAR</button>
+            </div>
+            <app-boton-regresar class="section__footer-form-button-btn" [rutaCustom]="rutaCustom"></app-boton-regresar>
+        </div>
+    </section>
+</section>
+<section>
+    <app-footer></app-footer>
+</section>

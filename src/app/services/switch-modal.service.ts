@@ -9,5 +9,7 @@ export class SwitchModalService {
 
   $modal = new EventEmitter<any>();
   $modalAcceso = new EventEmitter<any>();
+  $modalTerminosCondiciones = new EventEmitter<any>();
+  $politicaPrivacidad = new EventEmitter<any>();
   $scroll = new EventEmitter<any>();
 }

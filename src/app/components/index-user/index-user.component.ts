@@ -1,47 +1,28 @@
-import { Component, EventEmitter, Input, Output, Renderer2, ElementRef, HostListener, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output, Renderer2, ElementRef, HostListener, OnInit, Directive } from '@angular/core';
 
 @Component({
   selector: 'app-index-user',
   templateUrl: './index-user.component.html',
   styleUrls: ['./index-user.component.scss']
 })
-export class IndexUserComponent implements OnInit{
+export class IndexUserComponent{
   @Input() id!: string;
   @Input() maxSize!: number;
   @Output() pageChange!: EventEmitter<number>;
   @Output() pageBoundsCorrection!: EventEmitter<number>;
-  @Output() clickOutside = new EventEmitter<void>();
-  dropdownMenu: boolean = false;
   submenuRemixe: boolean = false;
   submenuGeneros: boolean = false;
-  submenuActivado: boolean = false;
-  menuResponsiveActivado: boolean = true;
+  submenuBuscador: boolean = false;
   itemForPage: number = 20;
   numberPage: number = 1;
-  mostrarTextoFlotante = false;
 
-  constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
+  constructor(private elementRef: ElementRef) { }
   isElementVisible = false;
   screenResolution?: string;
 
-  ngOnInit(){
-    this.getScreenResolution();
-  }
-  ngAfterViewInit() {
-    this.renderer.listen('window', 'resize', () => {
-      this.getScreenResolution();
-    });
-  }
-  getScreenResolution() {
-    this.screenResolution = `${window.innerWidth} x ${window.innerHeight}`;
-    if(window.innerWidth < 1200){
-      this.menuResponsiveActivado = false;
-    }else{
-      this.menuResponsiveActivado = true;
-    }
-  }
   listaSong = [] = [
     { 
+      id:1,
       image:"../../../assets/index-usuario/caratularecomendadosytop10.png",
       autor:"Bad Bunny",
       nombre:"Un preview",
@@ -53,6 +34,7 @@ export class IndexUserComponent implements OnInit{
       iconLove: "../../../assets/index-usuario/love.svg",
     },
     { 
+      id:2,
       image:"../../../assets/index-usuario/caratularecomendadosytop10.png",
       autor:"Bad Bunny",
       nombre:"Un preview",
@@ -64,6 +46,7 @@ export class IndexUserComponent implements OnInit{
       iconLove: "../../../assets/index-usuario/love.svg"
     },
     { 
+      id:3,
       image:"../../../assets/index-usuario/caratularecomendadosytop10.png",
       autor:"Bad Bunny",
       nombre:"Un preview",
@@ -75,6 +58,7 @@ export class IndexUserComponent implements OnInit{
       iconLove: "../../../assets/index-usuario/love.svg"
     },
     { 
+      id:4,
       image:"../../../assets/index-usuario/caratularecomendadosytop10.png",
       autor:"Bad Bunny",
       nombre:"Un preview",
@@ -86,6 +70,7 @@ export class IndexUserComponent implements OnInit{
       iconLove: "../../../assets/index-usuario/love.svg"
     },
     { 
+      id:5,
       image:"../../../assets/index-usuario/caratularecomendadosytop10.png",
       autor:"Bad Bunny",
       nombre:"Un preview",
@@ -97,6 +82,7 @@ export class IndexUserComponent implements OnInit{
       iconLove: "../../../assets/index-usuario/love.svg"
     },
     { 
+      id:6,
       image:"../../../assets/index-usuario/caratularecomendadosytop10.png",
       autor:"Bad Bunny",
       nombre:"Un preview",
@@ -108,6 +94,7 @@ export class IndexUserComponent implements OnInit{
       iconLove: "../../../assets/index-usuario/love.svg"
     },
     { 
+      id:7,
       image:"../../../assets/index-usuario/caratularecomendadosytop10.png",
       autor:"Bad Bunny",
       nombre:"Un preview",
@@ -119,6 +106,7 @@ export class IndexUserComponent implements OnInit{
       iconLove: "../../../assets/index-usuario/love.svg"
     },
     { 
+      id:8,
       image:"../../../assets/index-usuario/caratularecomendadosytop10.png",
       autor:"Bad Bunny",
       nombre:"Un preview",
@@ -130,6 +118,7 @@ export class IndexUserComponent implements OnInit{
       iconLove: "../../../assets/index-usuario/love.svg"
     },
     { 
+      id:9,
       image:"../../../assets/index-usuario/caratularecomendadosytop10.png",
       autor:"Bad Bunny",
       nombre:"Un preview",
@@ -141,17 +130,7 @@ export class IndexUserComponent implements OnInit{
       iconLove: "../../../assets/index-usuario/love.svg"
     },
     { 
-      image:"../../../assets/index-usuario/caratularecomendadosytop10.png",
-      autor:"Bad Bunny",
-      nombre:"Un preview",
-      subtitulo:"Intro Outro",
-      genero:"Reggaeton",
-      puntaje:"958 PM",
-      iconStart: "../../../assets/index-usuario/start.svg",
-      iconDownload: "../../../assets/index-usuario/download.svg",
-      iconLove: "../../../assets/index-usuario/love.svg"
-    },
-    { 
+      id:10,
       image:"../../../assets/index-usuario/caratularecomendadosytop10.png",
       autor:"Bad Bunny",
       nombre:"Un preview",
@@ -815,69 +794,6 @@ export class IndexUserComponent implements OnInit{
       iconLove: "../../../assets/index-usuario/love.svg"
     }
   ]
-  listRemixers = [] = [
-    {nombre: "Dj Pepe", image: "../../../assets/index-usuario/dj.png"},
-    {nombre: "Dj Pepe", image: "../../../assets/index-usuario/dj.png"},
-    {nombre: "Dj Pepe", image: "../../../assets/index-usuario/dj.png"},
-    {nombre: "Dj Pepe", image: "../../../assets/index-usuario/dj.png"},
-    {nombre: "Dj Pepe", image: "../../../assets/index-usuario/dj.png"},
-    {nombre: "Dj Pepe", image: "../../../assets/index-usuario/dj.png"},
-    {nombre: "Dj Pepe", image: "../../../assets/index-usuario/dj.png"},
-    {nombre: "Dj Pepe", image: "../../../assets/index-usuario/dj.png"},
-    {nombre: "Dj Pepe", image: "../../../assets/index-usuario/dj.png"},
-    {nombre: "Dj Pepe", image: "../../../assets/index-usuario/dj.png"},
-    {nombre: "Dj Pepe", image: "../../../assets/index-usuario/dj.png"},
-    {nombre: "Dj Pepe", image: "../../../assets/index-usuario/dj.png"}
-  ]
-  listGeneros = [] = [
-    {nombre: "Regueton"},
-    {nombre: "Rock"},
-    {nombre: "Cumbia"},
-    {nombre: "Regueton"},
-    {nombre: "Rock"},
-    {nombre: "Cumbia"},
-    {nombre: "Regueton"},
-    {nombre: "Rock"},
-    {nombre: "Cumbia"},
-    {nombre: "Regueton"},
-    {nombre: "Rock"},
-    {nombre: "Cumbia"}
-  ]
- 
-  
 
   totalPageList = Math.round(this.songsList.length / this.itemForPage)
-
-  openSubmenu($event:any){
-    if($event.target.innerHTML === "remixes"){
-      this.submenuGeneros = false;
-      this.dropdownMenu = false;
-      this.submenuRemixe = true;
-    }else if($event.target.innerHTML === "generos"){
-      this.submenuRemixe = false;
-      this.dropdownMenu = false;
-      this.submenuGeneros = true;
-    }else if($event.target.innerText === "MI CUENTA"){
-      this.submenuRemixe = false;
-      this.submenuGeneros = false;
-      this.dropdownMenu = true;
-    }else{
-      // this.dropdownMenu = false;
-      this.submenuRemixe = false;
-      this.submenuGeneros = false;
-    }
-  }
-  mostrarMenu(){
-    this.menuResponsiveActivado = !this.menuResponsiveActivado;
-  }
-
-  @HostListener('document:click', ['$event'])
-  documentClick(event: Event): void {
-    const target = event.target as HTMLElement;
-    if (!target.classList.contains('submenu-excluido')) {
-      this.submenuRemixe = false;
-      this.submenuGeneros = false;
-      this.dropdownMenu = false;
-    }
-  }
 }

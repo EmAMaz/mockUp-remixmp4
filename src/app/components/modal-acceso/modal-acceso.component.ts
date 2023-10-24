@@ -9,6 +9,7 @@ import { SwitchModalService } from 'src/app/services/switch-modal.service';
 })
 export class ModalAccesoComponent {
   public modalShow: boolean = false;
+  public selectType:string = "password";
   constructor(private modalService:SwitchModalService,@Inject(DOCUMENT) private document: Document){}
   scrollShow:any;
   
@@ -18,5 +19,8 @@ export class ModalAccesoComponent {
     this.scrollShow = "visible";
     const body = this.document.body;
     body.style.overflow = this.scrollShow;
+  }
+  passwordOcult(){
+    this.selectType === "password" ? this.selectType = "text" : this.selectType = "password";
   }
 }

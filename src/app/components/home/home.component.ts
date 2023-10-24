@@ -1,9 +1,11 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, ElementRef, Inject, Renderer2, ViewChild } from '@angular/core';
 import { SwitchModalService } from 'src/app/services/switch-modal.service';
-import { SwiperOptions } from 'swiper';
 import { SwiperComponent } from 'swiper/angular';
+import SwiperCore, { SwiperOptions, Autoplay, FreeMode } from 'swiper';
 import * as AOS from 'aos';
+
+SwiperCore.use([Autoplay, FreeMode]);
 
 @Component({
   selector: 'app-home',
@@ -16,6 +18,8 @@ export class HomeComponent {
   isActiveLink: boolean = false;
   screenResolution?: string;
   selectedButton: number = 0;
+  modalTerminosCondiciones!:boolean;
+  modalPoliticaPriv!:boolean;
   btnSliderDj = [
     { id: 0},
     { id: 1},
@@ -24,14 +28,24 @@ export class HomeComponent {
     { id: 4,},
   ];
 
-  constructor(private modalService:SwitchModalService,@Inject(DOCUMENT) private document: Document, private renderer: Renderer2, private el: ElementRef){}
-  
+  constructor(private modalService:SwitchModalService,@Inject(DOCUMENT) private document: Document, private renderer: Renderer2){}
+  @ViewChild('swiper', { static: false }) swiper?: SwiperComponent;
+  @ViewChild('swiperDJ', { static: false }) swiperDJ?: SwiperComponent;
+
+
   ngOnInit(){
     this.modalService.$modal.subscribe((valor)=>{
       this.modalShow = valor;
+      console.log("este es el valor de footer " + valor)
     })
     this.modalService.$modalAcceso.subscribe((valor)=>{
       this.modalShowAcceso = valor;
+    })
+    this.modalService.$modalTerminosCondiciones.subscribe((valor)=>{
+      this.modalTerminosCondiciones = valor;
+    })
+    this.modalService.$politicaPrivacidad.subscribe((valor)=>{
+      this.modalPoliticaPriv = valor;
     })
     this.getScreenResolution();
     AOS.init();
@@ -42,6 +56,7 @@ export class HomeComponent {
     this.renderer.listen('window', 'resize', () => {
       this.getScreenResolution();
     });
+    
   }
   getScreenResolution() {
     this.screenResolution = `${window.innerWidth} x ${window.innerHeight}`;
@@ -53,15 +68,13 @@ export class HomeComponent {
     }
   }
 
-  @ViewChild('swiper', { static: false }) swiper?: SwiperComponent;
-  @ViewChild('swiperDJ', { static: false }) swiperDJ?: SwiperComponent;
-
   slideNext(){
-    this.swiper?.swiperRef.slideNext(500);
+    this.swiper?.swiperRef.slideNext(1500);
+    console.log(this.swiper?.s_activeIndexChange) 
     this.btnSliderMain = true;
   }
   slidePrev(){
-    this.swiper?.swiperRef.slidePrev(500);
+    this.swiper?.swiperRef.slidePrev(1500);
     this.btnSliderMain = false;
   }
   slideTo(indice:number){
@@ -71,7 +84,16 @@ export class HomeComponent {
     this.selectedButton = item;
     this.slideTo(item)
   }
-  config: SwiperOptions = {
+  configMain: SwiperOptions = {
+    loop:true,
+    autoplay: {
+      delay:4000,
+      disableOnInteraction:false
+    },
+    freeMode:{
+      sticky:true,
+    },
+    speed:3000,
     breakpoints:{
       890:{
         slidesPerView:1,
@@ -83,7 +105,30 @@ export class HomeComponent {
         slidesPerView: 3,
         spaceBetween:50
       }
-    }
+    },
+  };
+  configDJ: SwiperOptions = {
+    loop:true,
+    autoplay: {
+      delay:4000,
+      disableOnInteraction:false
+    },
+    freeMode:{
+      sticky:true,
+    },
+    speed:3000,
+    breakpoints:{
+      890:{
+        slidesPerView:1,
+      },
+      1100: {
+        slidesPerView: 2,
+      },
+      1530: {
+        slidesPerView: 3,
+        spaceBetween:50
+      }
+    },
   };
   sliderImagesDj = [
     "../assets/slider_dj/personaje3.png",

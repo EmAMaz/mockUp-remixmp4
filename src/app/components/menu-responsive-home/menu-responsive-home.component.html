@@ -1,0 +1,13 @@
+<header class="container__header">
+  <div class="container__menu">
+    <img class="container__menu-menu" src="../../../assets/responsive/menu-svgrepo-com.svg" (click)="openMenu()" alt="">
+  </div>
+  <nav class="header__nav" >
+    <ul class="header__nav-enlaces" *ngIf="isOpen">
+      <li><a class="header__nav-enlaces-a" href="/" >inicio</a></li>
+      <li><a class="header__nav-enlaces-a" (click)="openModal()" (click)="scrollToTop()">registrarse</a></li>
+      <li><a class="header__nav-enlaces-a" href="#nosotros">nosotros</a></li>
+      <li><a class="header__nav-enlaces-a" href="#contactanos">contactanos</a></li>
+    </ul>
+  </nav>
+</header>

@@ -22,25 +22,12 @@
             display: flex;
             flex-direction: column;
             background-color: #000;
-            .formulario__titulo{
-                color: #fff;
-                display: flex;
-                justify-content: center;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                font-size: 2em;
-                font-weight: bold;
-                font-family: 'Hanson_Bold';
-                margin-top: 1.2em;
-                padding-bottom: 0;
-                line-height: 0;
-            }
             .contacto__formulario-formulario{
                 display: grid;
                 gap: 20px;
                 background-color: #000;
                 border: 2px solid #fff;
-                padding: 0.8em 5em 1em 5em;
+                padding: 1.5em 5em 1.5em 5em;
                 position: relative;
                     &-times__close{
                         width: 30px;
@@ -48,6 +35,28 @@
                         right: 12px;
                         top: 12px;
                         cursor: pointer;
+                    }
+                    .contacto__formulario-formulario-titulo{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        img{
+                            width: 10em;
+                            height: 6em;
+                        }
+                        .formulario__titulo{
+                            color: #fff;
+                            display: flex;
+                            justify-content: center;
+                            text-transform: uppercase;
+                            letter-spacing: 1px;
+                            font-size: 2em;
+                            font-weight: bold;
+                            font-family: 'Hanson_Bold';
+                            margin-top: 1.2em;
+                            padding-bottom: 0;
+                            line-height: 0;
+                        }
                     }
                     .contacto__formulario-formulario-campos{
                         padding: 10px;
@@ -60,15 +69,36 @@
                         font-family: Arial, Helvetica, sans-serif;
                         letter-spacing: 1.2px;
                         color:#d1d1d1;
+                        &:hover{
+                            border-bottom: 2px solid #ff3100;
+                            border-left: 2px solid #ff3100;
+                        }
                     }
-                    .contacto__formulario-formulario-passwordP{
-                        color: #fff;
-                        margin: 0 auto;
-                        font-family: 'MonumentExtended_Regular';
-                        font-size: 0.9em;
-                        padding-top: 1em;
-                        cursor: pointer;
+                    .formulario__input-password{
+                        input{
+                            position: relative;
+                            width: 95%;
+                            margin-right: -3em;
+                        }
+                        svg{
+                            width: 1.8em;
+                            height: 1.8em;
+                            position: absolute;
+                            cursor: pointer;
+                        }
+
                     }
+                    // .contacto__formulario-formulario-passwordP{
+                    //     color: #4d4d4d;
+                    //     margin: 0 auto;
+                    //     font-family: "MonumentExtended_Regular";
+                    //     font-size: 13px;
+                    //     padding: 1.5em 0;
+                    //     cursor: pointer;
+                    //     letter-spacing: 2px;
+                    //     text-transform: uppercase;
+                        
+                    // }
                     .container__registrate{
                         display: flex;
                         flex-direction: row;
@@ -76,45 +106,46 @@
                         
                         .contacto__formulario-formulario-registrate{
                             color: #fff;
-                            font-family: "MonumentExtended_Regular";
                             content: "Regístrate";
-                            font-size: 1.2em;
+                            font-size: 1em;
                             font-family: "MonumentExtended_Regular";
                             font-weight: 100;
                             letter-spacing: 2px;
                             margin: 0 auto;
+                            text-transform: uppercase;
                             &-registrate{
                                 color: #ff3100;
-                                font-size: 1.2em;
+                                font-size: 1em;
                                 margin-left: 1em;
                                 font-family: "MonumentExtended_Regular";
+                                text-transform: uppercase;
                                 font-weight: 100;
                                 letter-spacing: 2px;
                                 cursor: pointer;
                             }
                         }
                     }
-                    
-                    
-                    
                     &-btn{
-                            background: transparent;
-                            border: 2px solid #fff;
-                            color: #fff;
-                            border-radius: 12px;
-                            width: 11em;
-                            padding: 0.8em 0;
-                            display: flex;
-                            justify-content: center;
-                            font-family: "MonumentExtended_Regular";
-                            font-size: 1em;
-                            letter-spacing: 4px;
-                            text-transform: uppercase;
-                            justify-self: flex-end;
-                            margin: 2em 0;
-                            cursor: pointer;
-                            transition: 0.1s ease-out;
-                            justify-self: center;
+                        background: transparent;
+                        border: 2px solid #fff;
+                        color: #fff;
+                        border-radius: 12px;
+                        width: 11em;
+                        padding: 0.8em 0;
+                        display: flex;
+                        justify-content: center;
+                        font-family: "MonumentExtended_Regular";
+                        font-size: 1.1em;
+                        text-transform: uppercase;
+                        justify-self: flex-end;
+                        margin: 2em 0;
+                        cursor: pointer;
+                        transition: 0.1s ease-out;
+                        justify-self: center;
+                        font-weight: bold;
+                        height: 51px;
+                        align-items: center;
+                        letter-spacing: 4px;
                     }
                     &-btn:hover{
                             border: 2px solid #ff3100;

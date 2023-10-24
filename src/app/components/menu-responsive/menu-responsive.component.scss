@@ -1,0 +1,1173 @@
+h1,h2,h3,h4,h5,p{
+    padding: 0;
+    margin: 0;
+    color: #fff;
+    background: #1a1a1a;
+}
+.container__header{
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .container__menu{
+        display: none;
+        z-index: 99999;
+    }
+    .header__nav{
+        display: flex;
+        justify-content: space-around;
+        position: fixed;
+        width: 100%;
+        z-index: 5;
+        background: rgb(0 0 0 / 84%);
+        backdrop-filter: blur(20px);
+        .container__header-logo{
+            display: flex;
+            align-items: center;
+            a{
+                cursor: default;
+                img{
+                    width: 156px;
+                    height: 69px;
+                    cursor: default;
+                }
+            }
+        }
+        .header__nav-enlaces{
+            list-style: none;
+            display: flex;
+            text-transform: uppercase;
+            justify-content: center;
+            padding: 0;
+            position: relative;
+            background: transparent;
+            li{
+                display: flex;
+                align-items: center;
+                margin: 0 0.6em;
+                padding: 0;
+                justify-content: center;
+                cursor: pointer;
+                float: none;
+                padding-top: 0;
+                padding-bottom: 0;
+                background: transparent;
+                img{
+                    width: 1.5em;
+                    height: 1.5em;
+                }
+                .header__nav-enlaces-a{
+                    text-decoration: none;
+                    color: #fff;
+                    text-align: inherit;
+                    line-height: 25.6px;
+                    letter-spacing: 2px;
+                    font-weight: 100;
+                    font-style: normal;
+                    font-size: 18px;
+                    font-family: 'MonumentExtended_Regular';
+                    background: transparent;
+                }
+                ::after{
+                    content: "";
+                    display: block;
+                    width: 0;
+                    height: 10px;
+                    margin-top: 0.5em;
+                    background-color: #ff3100;
+                    transition: all .3s ;
+                }
+                ::before{
+                    content: "";
+                    display: block;
+                    width: 0;
+                    height: 10px;
+                    margin-bottom: 0.5em;
+                    background-color: transparent;
+                    transition: all .3s ;
+                }
+                :hover::before{
+                    width: 100%;
+                    height: 2px;
+                    margin-bottom: 0.5em;
+                }
+                :hover::after{
+                    width: 100%;
+                    height: 2px;
+                    margin-top: 0.5em;
+                }
+                
+            }
+            
+        }
+        .container__dropdown{
+            display: flex;
+            align-items: center;
+            background: transparent;
+            &-dropdown{
+                background: transparent;
+                &-btnToggle{
+                    padding: 0;
+                    color: #fff;
+                    font-size: 18px;
+                    letter-spacing: 1.2px;
+                    text-transform: uppercase;
+                    border: none;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-family: 'MonumentExtended_Regular';
+                    cursor: pointer;
+                    position: relative;
+                    background: transparent;
+                    img{
+                        padding-right: 0.3em;
+                        width: 31px;
+                        height: 27px;
+                        background: transparent;
+                    }
+                    li{
+                        padding: 0;
+                        margin: 0;
+                        background: transparent;
+                        list-style: none;
+                    }
+                    ::after{
+                        content: "";
+                        display: block;
+                        width: 0;
+                        height: 10px;
+                        margin-top: 0.5em;
+                        background-color: #ff3100;
+                        transition: all .3s ;
+                    }
+                    ::before{
+                        content: "";
+                        display: block;
+                        width: 0;
+                        height: 10px;
+                        margin-bottom: 0.5em;
+                        background-color: transparent;
+                        transition: all .3s ;
+                    }
+                    :hover::before{
+                        width: 100%;
+                        height: 2px;
+                        margin-bottom: 0.5em;
+                    }
+                    :hover::after{
+                        width: 100%;
+                        height: 2px;
+                        margin-top: 0.5em;
+                    }
+                }
+                &-menu{
+                    position: absolute;
+                    background: #1a1a1a;
+                    padding: 0;
+                    top: 5em;
+                    display: grid;
+                    margin: 0;
+                    li{
+                        list-style: none;
+                        background: #1a1a1a;
+                        margin: 0;
+                        img{
+                            background: transparent;
+                            width: 29px;
+                            height: 27px;
+                            padding-right: 0.7em;
+                        }
+                        a{
+                            text-decoration: none;
+                            color: #fff;
+                            background: #1a1a1a;
+                            font-family: 'MonumentExtended_Regular';
+                            font-size: 16px;
+                            display: flex;
+                            font-weight: 100;
+                            letter-spacing: 1.1px;
+                            align-items: center;
+                            padding: 0.9em 1.3em;
+                            cursor: pointer;
+                            margin: 0;
+                            height: 16px;
+                            &:hover{
+                                background: #ff3000;
+                            }
+                        }
+                    }
+                    :first-child{
+                        img{
+                            width: 29px;
+                            height: 23px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.container__submenu-remixes{
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 40%;
+    background: #000;
+    border-top: 2px solid #ff3000;
+    top: 4.2em;
+    padding: 0.5em;
+    &-close{
+        display: none;
+    }
+    &-remixes{
+        cursor: pointer;
+        ul{
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 0;
+            background: #000;
+            margin: 0;
+            transition: all .1s ease-in;
+            li{
+                font-family: 'MonumentExtended_Regular';
+                font-weight: 100;
+                font-size: 0.9em;
+                background: transparent;
+                padding: 0.5em;
+            }
+            :nth-child(2){
+                padding-left: 0.5em;
+                background: transparent;
+            }
+        }
+        :hover{
+            background: #1a1a1a;
+        }
+    }
+}
+.container__submenu-buscador-fondo-fondo{
+    position: absolute;
+    width: 40%;
+    top: 3em;
+    overflow: hidden;
+    background: transparent;
+    .container__exit{
+        background: transparent;
+        width: 100%;
+        display: flex;
+        flex-flow: row-reverse;
+        img{
+            width: 1.5em;
+            height: 1.5em;
+            background: transparent;
+            padding: 0.3em 1em;
+            cursor: pointer;
+        }
+    }
+    .container__submenu-buscador-fondo{
+        background-image: linear-gradient(90deg, #d8792c, #b4266b) !important;
+        padding: 0.2em;
+        border-radius: 20em;
+        .container__submenu-buscador{
+            height: max-content;
+            top: 5em;
+            width: 100%;
+            background: #303030;
+            border-radius: 20em;
+            .container__submenu-buscador-buscador{
+                display: grid;
+                align-items: center;
+                background: transparent;
+                grid-template-rows: 1fr;
+                grid-template-columns: repeat(5,1fr);
+                padding: 0.2em 1em;
+                height: 40px;
+                &-generos{
+                    background: transparent;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    .titulo__genero{
+                        background: transparent;
+                        padding: 0;
+                        margin: 0;
+                        color: #fff;
+                        &:after{
+                            content: url("../../../assets/index-usuario/angle.svg");
+                            padding-left: 10px;
+                        }
+                        .select__container{
+                            outline: none;
+                            background: transparent;
+                            letter-spacing: 1px;
+                            font-family: 'Hanson_Bold';
+                            font-size: 15px;
+                            font-weight: 100;
+                            cursor: pointer;
+                            width: min-content;
+                            display: flex;
+                            height: 100%;
+                            align-items: center;
+                            border: none;
+                            background: #303030;
+                            color: #fff;
+                            option{
+                                background: #303030;
+                                padding: 0 2em;
+                                margin: 0 2em;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+                &-input{
+                    background: transparent;
+                    display: flex;
+                    grid-column: 3/6;
+                    input{
+                        width: 100%;
+                        border: none;
+                        color: #fff;
+                        background: transparent;
+                        outline: none;
+                        padding-left: 10px;
+                        letter-spacing: 1px;
+                        &::placeholder{
+                            color: #B1B1B1;
+                            font-size: 15px;
+                            background: transparent;
+                        }
+                    }
+                    svg{
+                        width: 1.3em;
+                        height: 1.3em;
+                        background: transparent;
+                        cursor: pointer;
+                        
+                    }
+                    #lupa__buscador-index{
+                        &:hover{
+                            stroke: #ff3100;
+                        }
+                    }
+                }
+                
+                &-remixers{
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    background: transparent;
+                    h5{
+                        background: transparent;
+                        letter-spacing: 1px;
+                        font-family: 'Hanson_Bold';
+                        font-size: 15px;
+                        font-weight: 100;
+                        cursor: pointer;
+                        width: min-content;
+                        display: flex;
+                        height: 100%;
+                        align-items: center;
+                    }
+                    .select__container{
+                        outline: none;
+                        background: transparent;
+                        letter-spacing: 1px;
+                        font-family: 'Hanson_Bold';
+                        font-size: 15px;
+                        font-weight: 100;
+                        cursor: pointer;
+                        width: min-content;
+                        display: flex;
+                        height: 100%;
+                        align-items: center;
+                        border: none;
+                        background: #303030;
+                        color: #fff;
+                        option{
+                            background: #303030;
+                            padding: 0 2em;
+                            margin: 0 2em;
+                            cursor: pointer;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+}
+.logoActivo{
+    visibility: hidden;
+}
+@media only screen and (min-width: 230px) and (max-width: 576px){
+    .container__header{
+        .container__menu{
+            display: flex;
+            align-self: self-end;
+            padding: 0.5em;
+            img{
+                justify-content: flex-end;
+                width: 3.2em;
+                height: 3.2em;
+            }
+        }
+        .header__nav{
+            position: absolute;
+            flex-direction: column;
+            background: transparent;
+            backdrop-filter: none;
+            .container__header-logo{
+                display: none;
+            }
+            .header__nav-enlaces{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 3em 0 0 0;
+                margin-top: 0;
+                background: #000000db;
+                backdrop-filter: blur(5px);
+                li:last-child{
+                    order: -1;
+                    height: 62px;
+                }
+            }
+            .container__submenu-remixes {
+                width: 100%;
+                grid-template-columns: repeat(1, 1fr);
+                z-index: 9999;
+                padding: 0;
+                border-bottom: 2px solid #ff3000;
+                .container__submenu-remixes-close{
+                    display: block;
+                    grid-column: 1/2;
+                    justify-self: end;
+                    margin-right: 2em;
+                    margin-top: 0.5em;
+                    background: transparent;
+                    img{
+                        display: flex;
+                        width: 2em;
+                        height: 2em;
+                        background: transparent;
+                    }
+                }
+            }
+            .container__dropdown{
+                position: absolute;
+                top: 5px;
+                left: 5px;
+                height: 62px;
+                &-dropdown{
+                    &-menu{
+                        top: 4em;
+                    }
+                }
+            }
+        }
+    }
+    .container__banner{
+        border-top: 2px solid #fff;
+        .container__banner-image{
+            width: 100%;
+            height: 10em;
+        }
+    }
+    .container__double{
+        .container__double-card{
+            display: flex;
+            grid-template-columns:none;
+            height: auto;
+            flex-direction: column;
+            width: 100%;
+            .container__double-card-recomendados-title{
+                font-size: 0.9em;
+                letter-spacing: 1px;
+                padding: 1em 0;
+                img{
+                    width: 43px;
+                    height: 25px;
+                }
+            }
+            .container__double-card-recomendados{
+                &-song{
+                    &-second{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    .container__list-song{
+        .container__list-song-card{
+            width: 100%;
+            display: grid;
+            align-items: center;
+            grid-template-columns: 1fr;
+            gap: 1.1em;
+            background: #2c2c2c;
+            margin: 0.2em 0;
+            padding: 0.3em 0;
+            text-align: center;
+            &-item-fecha{
+                flex-direction: column;
+                margin-bottom: 1em;
+                &-estampas{
+                    background: transparent;
+                    img{
+                        padding: 0.7em;
+                    }
+                }
+                
+            }
+            
+        }
+    }
+    .container__list{
+        margin: 0 1em;
+        .container__list-song-head{
+            &-ul{
+                display: none;
+            }
+        }
+        .container__list-pagination{
+            .container__list-pagination-pagination{
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 2em;
+                grid-template-rows: 1fr 1fr;
+                    .pagination__nav{
+                         position: initial!important;
+                        text-align: center;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+}
+@media only screen and (max-width : 450px){
+    .header__nav{
+        background: transparent;
+        backdrop-filter: none;
+        .header__nav-enlaces{
+            background: #000000db;
+            backdrop-filter: blur(5px);
+        }
+    }
+    .container__double{
+        .container__double-card{
+            .container__double-card-recomendados{
+                width: auto;
+                padding-right: 0;
+                .container__double-card-recomendados-song{
+                    flex-direction: column;
+                    height: auto;
+                }
+            }
+        }
+    }
+    .container__list{
+        .container__list-song{
+            .container__list-song-card{
+                .container__list-song-card-item-fecha{
+                    &-estampas{
+                        :nth-child(1){
+                            padding: 15px 15px 15px 0;
+                        }
+                        :nth-child(2){
+                            padding: 15px 0 15px 15px;
+                        }
+                    }
+                }
+                &:last-child{
+                    padding-bottom: 2em;
+                    .container__list-song-card-item-previoDescarga{
+                        
+                    padding-bottom: 2em;
+                        img{
+                            width: 2em;
+                            height: 2em;
+                        }
+                    }
+                    .previoDescarga__botonera{
+                        padding-top: 0.5em;
+                        img{
+                            width: 1.2em;
+                            padding: 0 0.3em;
+                            height: 1.2em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-width: 450px) and (max-width : 576px){
+    .container__list{
+        .container__list-song{
+            .container__list-song-card{
+                .container__list-song-card-item-fecha{
+                    padding-bottom: 1em;
+                    &-estampas{
+                        :nth-child(1){
+                            padding: 15px 15px 15px 0;
+                            &::before{
+                                content: "";
+                                width: 1em;
+                                height: 1em;
+                                background: red;
+                                border-radius: 100%;
+                            }
+                        }
+                        :nth-child(2){
+                            padding: 15px 0 15px 15px;
+                        }
+                    }
+                }
+                &:last-child{
+                    padding-bottom: 2em;
+                    .container__list-song-card-item-previoDescarga{
+                        padding-bottom: 2em;
+                        img{
+                            width: 2em;
+                            height: 2em;
+                        }
+                    }
+                    .previoDescarga__botonera{
+                        padding-top: 0.5em;
+                        img{
+                            width: 1.2em;
+                            padding: 0 0.3em;
+                            height: 1.2em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-width: 577px) and (max-width : 768px){
+    .container__header{
+        .container__menu{
+            display: flex;
+            align-self: self-end;
+            padding: 0.5em;
+            img{
+                justify-content: flex-end;
+                width: 3.2em;
+                height: 3.2em;
+            }
+        }
+        .header__nav{
+            position: initial;
+            flex-direction: column;
+            backdrop-filter: none;
+            background: transparent;
+            .container__header-logo{
+                display: none;
+            }
+            .header__nav-enlaces{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0;
+                margin-top: 0;
+                background: #000000db;
+                backdrop-filter: blur(5px);
+                li:last-child{
+                    order: -1;
+                    height: 62px;
+                }
+            }
+            .container__submenu-remixes {
+                width: 100%;
+                grid-template-columns: repeat(1, 1fr);
+                z-index: 9999;
+                padding: 0;
+                border-bottom: 2px solid #ff3000;
+                .container__submenu-remixes-close{
+                    display: block;
+                    grid-column: 1/2;
+                    justify-self: end;
+                    margin-right: 2em;
+                    margin-top: 0.5em;
+                    background: transparent;
+                    img{
+                        display: flex;
+                        width: 2em;
+                        height: 2em;
+                        background: transparent;
+                    }
+                }
+            }
+            .container__dropdown{
+                position: absolute;
+                top: 5px;
+                left: 5px;
+                height: 62px;
+                &-dropdown{
+                    &-menu{
+                        top: 4em;
+                    }
+                }
+            }
+        }
+    }
+    .container__banner{
+        border-top: 2px solid #fff;
+        .container__banner-image{
+            width: 100%;
+        }
+    }
+    .container__double{
+        .container__double-card{
+            display: flex;
+            grid-template-columns:none;
+            height: auto;
+            flex-direction: column;
+            width: 100%;
+            .container__double-card-recomendados-title{
+                font-size: 0.9em;
+                letter-spacing: 1px;
+                padding: 1em 0;
+                img{
+                    width: 43px;
+                    height: 25px;
+                }
+            }
+            .container__double-card-recomendados{
+                &-song{
+                    &-second{
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+    .container__list-song{
+        .container__list-song-card{
+            width: 100%;
+            display: grid;
+            align-items: center;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.1em;
+            background: #2c2c2c;
+            margin: 0.2em 0;
+            padding: 0.3em 0;
+            text-align: center;
+            &-item-fecha{
+                flex-direction: column;
+                margin-bottom: 1em;
+                &-estampas{
+                    background: transparent;
+                    img{
+                        padding: 0.7em;
+                    }
+                    :first-child{
+                        height: min-content;
+                        padding: 1.3em 0 0 0;
+                    }
+                }
+            }
+            :nth-child(5){
+                display: none;
+            }
+            :nth-child(6){
+                display: none;
+            }
+            :nth-child(7){
+                display: none;
+            }
+            
+        }
+    }
+    .container__list{
+        margin: 0 1em;
+        .container__list-song-head{
+            &-ul{
+                display: none;
+            }
+        }
+        .container__list-pagination{
+            .container__list-pagination-pagination{
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 2em;
+                grid-template-rows: 1fr 1fr;
+                    .pagination__nav{
+                         position: initial!important;
+                        text-align: center;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+}
+@media only screen and (min-width: 769px) and (max-width : 991px){
+    .container__header{
+        .container__menu{
+            display: flex;
+            align-self: self-end;
+            padding: 0.5em;
+            img{
+                justify-content: flex-end;
+                width: 3.2em;
+                height: 3.2em;
+            }
+        }
+        .header__nav{
+            position: absolute;
+            flex-direction: column;
+            background: transparent;
+            backdrop-filter: none;
+            .container__header-logo{
+                display: none;
+            }
+            .header__nav-enlaces{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 3em 0 0 0;
+                background: #000000db;
+                backdrop-filter: blur(5px);
+                li:last-child{
+                    order: -1;
+                    height: 62px;
+                }
+            }
+            .container__submenu-remixes {
+                width: 100%;
+                grid-template-columns: repeat(1, 1fr);
+                z-index: 9999;
+                padding: 0;
+                border-bottom: 2px solid #ff3000;
+                .container__submenu-remixes-close{
+                    display: block;
+                    grid-column: 1/2;
+                    justify-self: end;
+                    margin-right: 2em;
+                    margin-top: 0.5em;
+                    background: transparent;
+                    img{
+                        display: flex;
+                        width: 2em;
+                        height: 2em;
+                        background: transparent;
+                    }
+                }
+            }
+            .container__dropdown{
+                position: absolute;
+                top: 5px;
+                left: 5px;
+                height: 62px;
+                &-dropdown{
+                    &-menu{
+                        top: 4em;
+                    }
+                }
+            }
+        }
+    }
+    .container__banner{
+        border-top: 2px solid #fff;
+        .container__banner-image{
+            width: 100%;
+        }
+    }
+    .container__double{
+        .container__double-card{
+            display: flex;
+            grid-template-columns:none;
+            height: auto;
+            flex-direction: column;
+            width: 100%;
+            .container__double-card-recomendados-title{
+                font-size: 0.9em;
+                letter-spacing: 1px;
+                padding: 1em 0;
+                img{
+                    width: 43px;
+                    height: 25px;
+                }
+            }
+            .container__double-card-recomendados{
+                &-song{
+                    &-second{
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+    .container__list-song{
+        .container__list-song-card{
+            width: 100%;
+            display: grid;
+            align-items: center;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.1em;
+            background: #2c2c2c;
+            margin: 0.2em 0;
+            padding: 0.3em 0;
+            text-align: center;
+            &-item-fecha{
+                flex-direction: column;
+                margin-bottom: 1em;
+                &-estampas{
+                    background: transparent;
+                    img{
+                        padding: 0.7em;
+                    }
+                    :first-child{
+                        height: min-content;
+                        padding: 1.3em 0 0 0;
+                    }
+                }
+            }
+            :nth-child(5){
+                display: none;
+            }
+            :nth-child(6){
+                display: none;
+            }
+            :nth-child(7){
+                display: none;
+            }
+            
+        }
+    }
+    .container__list{
+        margin: 0 1em;
+        .container__list-song-head{
+            &-ul{
+                display: none;
+            }
+        }
+        .container__list-pagination{
+            .container__list-pagination-pagination{
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 2em;
+                grid-template-rows: 1fr 1fr;
+                    .pagination__nav{
+                         position: initial!important;
+                        text-align: center;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+}
+@media only screen and (min-width: 992px) and (max-width : 1199px){
+    .container__header{
+        .container__menu{
+            display: flex;
+            align-self: self-end;
+            padding: 0.5em;
+            position: relative;
+            img{
+                justify-content: flex-end;
+                width: 3.2em;
+                height: 3.2em;
+            }
+        }
+        .header__nav{
+            position: absolute;
+            flex-direction: column;
+            background: transparent;
+            backdrop-filter: none;
+            .container__header-logo{
+                display: none;
+            }
+            .header__nav-enlaces{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 3em 0 0 0;
+                background: #000000db;
+                backdrop-filter: blur(5px);
+                li:last-child{
+                    order: -1;
+                    height: 62px;
+                }
+            }
+            .container__submenu-remixes{
+                width: 100%;
+                grid-template-columns: repeat(1, 1fr);
+                z-index: 9999;
+                padding: 0;
+                border-bottom: 2px solid #ff3000;
+                
+            }
+            .container__dropdown{
+                position: absolute;
+                top: 4px;
+                left: 5px;
+                height: 62px;
+                &-dropdown{
+                    &-menu{
+                        top: 4em;
+                    }
+                }
+            }
+        }
+    }
+    .container__banner{
+        border-top: 2px solid #fff;
+        .container__banner-image{
+            width: 100%;
+        }
+    }
+    .container__double{
+        .container__double-card{
+            display: flex;
+            grid-template-columns:none;
+            height: auto;
+            flex-direction: column;
+            width: 100%;
+            .container__double-card-recomendados-title{
+                font-size: 0.9em;
+                letter-spacing: 1px;
+                padding: 1em 0;
+                img{
+                    width: 43px;
+                    height: 25px;
+                }
+            }
+            .container__double-card-recomendados{
+                &-song{
+                    &-second{
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+    .container__list-song{
+        .container__list-song-card{
+            width: 100%;
+            display: grid;
+            align-items: center;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.1em;
+            background: #2c2c2c;
+            margin: 0.2em 0;
+            padding: 0.3em 0;
+            text-align: center;
+            &-item-fecha{
+                flex-direction: column;
+                margin-bottom: 1em;
+                &-estampas{
+                    background: transparent;
+                    img{
+                        padding: 0.7em;
+                    }
+                    :first-child{
+                        height: min-content;
+                        padding: 1.3em 0 0 0;
+                    }
+                }
+            }
+            :nth-child(5){
+                display: none;
+            }
+            :nth-child(6){
+                display: none;
+            }
+            :nth-child(7){
+                display: none;
+            }
+            
+        }
+    }
+    .container__list{
+        margin: 0 1em;
+        .container__list-song-head{
+            &-ul{
+                display: none;
+            }
+        }
+        .container__list-pagination{
+            .container__list-pagination-pagination{
+                .container__list-pagination-pagination-template{
+                    .container__list-pagination-pagination-pagina{
+                        .pagination__nav{
+                            display: block!important;
+                            font-weight: 500;
+                            p{
+                                display: block!important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1490px){
+    // .container__header{
+    //     .header__nav{
+    //         .container__header-logo{
+    //             img{
+    //                 width: 115px;
+    //                 height: 45px;
+    //             }
+    //         }
+    //         .container__submenu-remixes{
+    //             position: absolute;
+    //             display: grid;
+    //             grid-template-columns: repeat(3, 1fr);
+    //             gap: 10px;
+    //             background: #585858;
+    //             border-top: 2px solid #ff3000;
+    //             top: 4.2em;
+    //             width: auto;
+    //             padding: 0.5em;
+    //         }
+    //     }
+    //     .container__submenu-buscador-fondo-fondo{
+    //         width: auto;
+    //         top: 4em;
+    //     }
+    // }
+    .container__banner{
+        .container__banner-image{
+            width: 95%;
+        }
+    }
+    .container__double{
+        .container__double-card{
+            gap: 1em;
+            width: 95%;
+        }
+    }
+    .container__list{
+        .container__list-song{
+            &-head{
+                &-ul{
+                    width: 95%;
+                }
+            }
+        }
+        .container__list-song{
+            .container__list-song-card{
+                width: 95%;
+                .container__list-song-card-item-fecha{
+                    .container__list-song-card-item-fecha-estampas{
+                        background: transparent;
+                    }
+                }
+            }
+        }
+        .container__list-pagination-pagination-template{
+            width: 95%;
+        }
+    }
+
+}

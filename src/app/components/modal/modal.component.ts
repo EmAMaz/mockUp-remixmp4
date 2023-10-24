@@ -10,6 +10,9 @@ import * as AOS from 'aos';
 })
 export class ModalComponent implements OnInit{
   public modalShow: boolean = false;
+  public hiddenPass:boolean = true;
+  public selectType:string = "password";
+  public selectTypeRepeat:string = "password";
   constructor(private modalService:SwitchModalService,@Inject(DOCUMENT) private document: Document){}
   scrollShow:any;
 
@@ -24,6 +27,18 @@ export class ModalComponent implements OnInit{
     const body = this.document.body;
     body.style.overflow = this.scrollShow;
   }
-  
+  abrirModal(){
+    this.modalService.$modalTerminosCondiciones.emit(true);
+  }
+  hiddenPassword($event:any){
+    console.log($event.target.value);
+    this.hiddenPass = !this.hiddenPass;
+  }
+  passwordOcult(){
+    this.selectType === "password" ? this.selectType = "text" : this.selectType = "password";
+  }
+  passwordOcultRepeat(){
+    this.selectTypeRepeat === "password" ? this.selectTypeRepeat = "text" : this.selectTypeRepeat = "password";
+  }
 }
 

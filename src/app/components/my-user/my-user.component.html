@@ -1,27 +1,17 @@
-<header class="container__header">
-    <div class="container__menu">
-      <img class="container__menu-menu" src="../../../assets/responsive/menu-svgrepo-com.svg" (click)="openMenu()" alt="">
-    </div>
-    <nav class="header__nav" >
-      <ul class="header__nav-enlaces" *ngIf="isOpen">
-        <li><a class="header__nav-enlaces-a" routerLink="/">inicio</a></li>
-        <li><a class="header__nav-enlaces-a" >registrarse</a></li>
-        <li><a class="header__nav-enlaces-a">nosotros</a></li>
-        <li><a class="header__nav-enlaces-a" routerLink="/membresia">membresia</a></li>
-        <li><a class="header__nav-enlaces-a">contactanos</a></li>
-      </ul>
-    </nav>
-</header>
-<section class="section__titulo">
-    <h1 class="section__titulo-titulo">MI CUENTA</h1>
+<section>
+    <app-menu-responsive [logo]=true [buscador]=true></app-menu-responsive>
 </section>
-<section class="section__cuenta">
+<div class="section__main">
+    <section class="section__titulo">
+    <h1 class="section__titulo-titulo">MI CUENTA</h1>
+    </section>
+    <section class="section__cuenta">
     <div class="container__aside">
         <div class="container__aside-aside">
             <label class="container__aside-aside-label">E-mail:<input class="container__aside-aside-input" type="text" id="Name" name="Name" value="pepe@gmail.com"/></label>
             <div>
                 <div class="container__aside-aside-contraseña">
-                    <label class="container__aside-aside-label ">Contraseña:<input class="container__aside-aside-input" type="text" id="Name" name="Name" value="*********"/></label>
+                    <label class="container__aside-aside-label ">Contraseña:<input class="container__aside-aside-input" type="password" id="Name" name="Name" value="*********"/></label>
                     <div class="container__aside-aside-contraseña-button">
                         <button class="button__button">Cambiar</button>
                     </div>
@@ -29,14 +19,11 @@
             </div>
             <div>
                 <div class="container__aside-aside-contraseña">
-                    <label class="container__aside-aside-label">Mi Plan Actual:<input class="container__aside-aside-input" type="text" id="Name" name="Name" value="Plan basico"/></label>
-                    <div class="container__aside-aside-contraseña-button">
-                        <button class="button__button">Mejorar</button>
-                    </div>
+                    <label class="container__aside-aside-label">Mi plan Actual:<input class="container__aside-aside-input" type="text" id="Name" name="Name" value="Plan Básico"/></label>
                 </div>
             </div>
             <div class="container__redes">
-                <label class="container__redes-titulo" for="Name">Registra url de tus Redes:</label>
+                <label class="container__redes-titulo" for="Name">Registra tus redes sociales:</label>
                 <div class="container__redes-redes">
                     <div class="container__redes-redes-group">
                         <img class="input__image" src="../../../assets/my-user/insta-my-user.svg" alt="">
@@ -80,7 +67,12 @@
             </ul>
         </div>
     </div>
-</section>
+    </section>
+    <div class="container__buttom-regresar">
+        <app-boton-regresar class="container__buttom-regresar-btn" [rutaCustom]="rutaCustom"></app-boton-regresar>
+    </div>
+</div>
+
 <section class="container__footer">
     <app-footer></app-footer>
 </section>

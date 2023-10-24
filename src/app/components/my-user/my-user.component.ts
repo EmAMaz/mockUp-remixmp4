@@ -18,6 +18,12 @@ export class MyUserComponent {
   public pagoActive: boolean = true; 
   public precioActive: boolean = true; 
   public itemListUser: any[] = []; 
+  public rutaCustom:string="/usuario";
+  
+  submenuRemixe = false;
+  submenuBuscador = false;
+  submenuGeneros = false;
+  dropdownMenu = false;
 
   constructor(private renderer: Renderer2){}
   ngOnInit(){
@@ -45,7 +51,7 @@ export class MyUserComponent {
   getScreenResolution() {
     this.screenResolution = `${window.innerWidth} x ${window.innerHeight}`;
     
-    if(window.innerWidth < 802){
+    if(window.innerWidth < 1165){
       this.isOpen = false;
     }else{
       this.isOpen = true;
@@ -92,5 +98,35 @@ export class MyUserComponent {
     }
     
   }
-  
+  onHover($event:any) {
+    console.log($event.srcElement.id)
+    if($event.target.outerText.toLowerCase() === "remixers"){
+      this.submenuGeneros = false;
+      this.submenuBuscador = false;
+      this.submenuRemixe = true;
+    }else if($event.target.outerText.toLowerCase() === "generos"){
+      this.submenuRemixe = false;
+      this.submenuBuscador = false;
+      this.submenuGeneros = true;
+    }else if($event.target.outerText.toLowerCase() === "mi cuenta"){
+      this.submenuRemixe = false;
+      this.submenuGeneros = false;
+      this.submenuBuscador = false;
+      this.dropdownMenu = true;
+    }else if($event.srcElement.id === "buscador"){
+      this.submenuRemixe = false;
+      this.submenuGeneros = false;
+      this.dropdownMenu = false;
+      this.submenuBuscador = true;
+    }else{
+      this.dropdownMenu = false;
+      this.submenuRemixe = false;
+      this.submenuGeneros = false;
+    }
+  }
+  onHoverLeave() {
+    this.dropdownMenu = false;
+    this.submenuRemixe = false;
+    this.submenuGeneros = false;
+  }
 }

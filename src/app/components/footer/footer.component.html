@@ -1,16 +1,16 @@
 <nav class="footer">
     <div class="footer__logo">
-        <img class="footer__logo-footer" src="../../../assets/logo-footer.png" alt="">
+        <img class="footer__logo-footer" src="../../../assets/footer/logo-footer.png" alt="">
     </div>
     <div class="footer__redes">
-        <img class="footer__redes-instagram" src="../../../assets/instagram-svgrepo-com.svg" alt="">
-        <img class="footer__redes-facebook" src="../../../assets/facebook.svg" alt="">
+        <img class="footer__redes-instagram" src="../../../assets/footer/instagram-svgrepo-com.svg" alt="">
+        <img class="footer__redes-facebook" src="../../../assets/footer/facebook.svg" alt="">
     </div>
-    <p class="text-copyright">©Copyright 2023 - Con todos los derechos reservados</p>
+    <p class="text-copyright">RemixMP4 ©2023</p>
     <ul class="footer__enlaces">
-        <li class="footer__enlaces-link"><a class="footer__enlaces-link-a"href="">Terminos y Condiciones</a></li>
-        <li class="footer__enlaces-link"><a class="footer__enlaces-link-a"href="">Politica de Privacidad</a></li>
-        <li class="footer__enlaces-link"><a class="footer__enlaces-link-a"href="">Preguntas Frecuentes</a></li>
-        <li class="footer__enlaces-link"><a class="footer__enlaces-link-a"href="">DMCA</a></li>
+        <li class="footer__enlaces-link"><a class="footer__enlaces-link-a" (click)="abrirModal($event)" id="terminosCondiciones">Terminos y Condiciones</a></li>
+        <li class="footer__enlaces-link"><a class="footer__enlaces-link-a" (click)="abrirModal($event)" id="politicaPrivacidad">Politica de Privacidad</a></li>
+        <li class="footer__enlaces-link"><a class="footer__enlaces-link-a" routerLink="/preguntas-frecuentes" (click)="scrollToTop()">Preguntas Frecuentes</a></li>
+        <li class="footer__enlaces-link"><a class="footer__enlaces-link-a" routerLink="/dmca" (click)="scrollToTop()">DMCA</a></li>
     </ul>
 </nav>

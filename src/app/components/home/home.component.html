@@ -1,74 +1,59 @@
 <header class="container__header">
-    <div class="container__menu">
-      <img class="container__menu-menu" src="../../../assets/responsive/menu-svgrepo-com.svg" (click)="openMenu()" alt="">
-    </div>
-    <nav class="header__nav" >
-      <ul class="header__nav-enlaces" *ngIf="isOpen">
-        <li><a class="header__nav-enlaces-a">inicio</a></li>
-        <li><a class="header__nav-enlaces-a" (click)="openModal()" (click)="scrollToTop()">registrarse</a></li>
-        <li><a class="header__nav-enlaces-a">nosotros</a></li>
-        <li><a class="header__nav-enlaces-a" routerLink="/membresia">membresia</a></li>
-        <li><a class="header__nav-enlaces-a">contactanos</a></li>
-      </ul>
-    </nav>
-    <section class="container__titulo" data-aos="fade-up" data-aos-delay="400">
+    <app-menu-responsive-home></app-menu-responsive-home>
+    <section class="container__titulo" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
       <h1 class="titulo__primero">los mejores videos remixes</h1>
       <h2 class="titulo__segundo">actualizate ya!</h2>
       <button class="titulo__button-ingresar" (click)="openModalAcceso()" (click)="scrollToTop()">ingresar</button>
     </section>
-  </header>
+</header>
+
   <main>
-    <section class="container__sliderMain">
+    <section class="container__sliderMain"  data-aos="fade-up" data-aos-delay="200" data-aos-duration="3000">
   
       <div class="container__sliderMain-swiper">
         <swiper
-        [config]="config"
         #swiper
-        [virtual]="true"
-        [slideToClickedSlide]="true"
+        [config]="configMain"
+        [freeMode]="true"
+        [loop]="true"
         >
-        <ng-template swiperSlide *ngFor="let image of sliderImagesOne"><div class="container__sliderMain-swiper-container"><img class="container__sliderMain-swiper-container-image" [src]="image" alt=""></div></ng-template>
+        <ng-template swiperSlide *ngFor="let image of sliderImagesOne;index as i"><div class="container__sliderMain-swiper-container"><img class="container__sliderMain-swiper-container-image" [src]="image" alt=""></div></ng-template>
         </swiper>
-        <div class="container__sliderMain-swiper-buttons">
+        <div class="container__sliderMain-swiper-buttons" id="nosotros">
           <div class="container__sliderMain-swiper-buttons-btn" [ngClass]="{'background__slider-btn': btnSliderMain === false}" (click)="slidePrev()"></div>
           <div class="container__sliderMain-swiper-buttons-btn" [ngClass]="{'background__slider-btn': btnSliderMain === true}" (click)="slideNext()"></div>
         </div>
       </div>    
     </section>
-    <section class="container__opiniones">
+    <section class="container__opiniones" data-aos="fade-up" data-aos-delay="100" data-aos-duration="3000">
         <div class="opiniones__titulo">
         <h3 class="opiniones__titulo-first">¿Que opinan de nosotros</h3>
         <h3 class="opiniones__titulo-second">artistas, productores y djs?</h3>
         </div>
   
         <div class="container__slider-swiper">
-  
           <swiper
-          [config]="config"
+          [config]="configDJ"
           #swiperDJ
-          [virtual]="true"
-          [spaceBetween]="50"
+          [config]="configMain"
+          [freeMode]="true"
+          [loop]="true"
           >
           <ng-template swiperSlide *ngFor="let image of sliderImagesDj">
-            
             <div class="card">
               <img class="card__image" [src]="image" alt="">
               <img class="card__image-signos" src="../../../assets/signos.png" alt="">
               <p class="card__description">"He conocido la plataforma RemixMP4 y la verdad encuentro todo lo necesario para ejercer mi labor de DJ, me ha sido de gran ayuda y la utilizo a diario"</p>
-              <p class="card__description-dj">DJ Lorin</p>
+              <p class="card__description-dj" id="contactanos">DJ Lorin</p>
             </div>
           </ng-template>
-  
           </swiper>
-  
-          <div class="container__opiniones-steps" >
+          <div class="container__opiniones-steps">
             <div class="container__opiniones-steps-steps" *ngFor="let i of btnSliderDj" [ngClass]="{'background__slider-btn': i.id === selectedButton}" (click)="selectButtonDj(i.id)"></div>
           </div>
         </div>  
-  
-          
     </section>
-    <section class="container__contacto">
+    <section class="container__contacto" data-aos="fade-up" data-aos-delay="50" data-aos-duration="3000">
       <div class="contacto__image-dj">
         <img class="contacto__image-dj-image" src="../../../assets/dj.png" alt="">
       </div>
@@ -85,12 +70,17 @@
       </div>
     </section>
   </main>
-  <app-footer></app-footer>
+
   <!-- MODAL -->
   <div class="container__modal" *ngIf="modalShow === true" data-aos="fade-down" data-aos-delay="200">
     <app-modal></app-modal>
   </div>
   <div class="container__modal" *ngIf="modalShowAcceso === true" data-aos="fade-down" data-aos-delay="200">
     <app-modal-acceso></app-modal-acceso>
+  </div>
+  <div class="container">
+    <app-terminos-condiciones *ngIf="modalTerminosCondiciones"></app-terminos-condiciones>
+    <app-politica-privacidad *ngIf="modalPoliticaPriv"></app-politica-privacidad>
+    <app-footer></app-footer>
   </div>
   

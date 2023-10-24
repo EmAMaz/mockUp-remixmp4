@@ -1,0 +1,89 @@
+<header class="container__header">
+    <div class="container__menu">
+      <img class="container__menu-menu" src="../../../assets/responsive/menu-svgrepo-com.svg" (click)="mostrarMenu()" alt="">
+    </div>
+    <nav class="header__nav" (mouseleave)="onHoverLeave()">
+        <div class="container__header-logo" [ngClass]="{'logoActivo': logo == false}">
+            <a><img src="../../../assets/index-usuario/logo-index-usuario.png" alt=""></a>
+        </div>
+        <ul class="header__nav-enlaces" *ngIf="menuResponsiveActivado">
+            <li><a class="header__nav-enlaces-a" (mouseenter)="onHover($event)" routerLink="/usuario" >nuevos videos</a></li>
+            <li><a class="header__nav-enlaces-a" (mouseenter)="onHover($event)">remixers</a></li>
+            <li><a class="header__nav-enlaces-a" (mouseenter)="onHover($event)">generos</a></li>
+            <li *ngIf=buscador><img src="../../../assets/index-usuario/search.svg" alt="" (click)="onHover($event)" id="buscador"></li>
+        </ul>
+        <div class="container__submenu-remixes submenu-excluido" *ngIf="submenuRemixe" (mouseleave)="onHoverLeave()">
+            <div class="container__submenu-remixes-close" (click)=onHoverLeave()>
+                <img src="../../../assets/index-usuario/times-close.svg" alt="">
+            </div>
+            <div class="container__submenu-remixes-remixes submenu-excluido" *ngFor="let remixers of listRemixers" >
+                <ul class="submenu-excluido">
+                    <li class="submenu-excluido"><img class="submenu-excluido "src={{remixers.image}} alt=""></li>
+                    <li class="submenu-excluido">{{remixers.nombre}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container__submenu-remixes submenu-excluido" *ngIf="submenuGeneros" (mouseleave)="onHoverLeave()">
+            <div class="container__submenu-remixes-close" (click)=onHoverLeave()>
+                <img src="../../../assets/index-usuario/times-close.svg" alt="">
+            </div>
+            <div class="container__submenu-remixes-remixes submenu-excluido" *ngFor="let generos of listGeneros">
+                <ul class="submenu-excluido">
+                    <li class="submenu-excluido">{{generos.nombre}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container__submenu-buscador-fondo-fondo" *ngIf="submenuBuscador">
+            <div class="container__exit">
+                <img src="../../../assets/times-close.svg" alt="" (click)="exitSearch()">
+            </div>
+            <div class="container__submenu-buscador-fondo">
+                <form action="" class="container__submenu-buscador">
+                    <div class="container__submenu-buscador-buscador">
+                        <div class="container__submenu-buscador-buscador-generos">
+                            <h5 class="titulo__genero">
+                                <select class="select__container" name="Generos" id="">
+                                    <option>Generos</option>
+                                    <option>Cumbia</option>
+                                    <option>Folklore</option>
+                                    <option>Rock</option>
+                                    <option>Rock</option>
+                                </select>
+                                <i></i>
+                            </h5>
+                        </div>
+                        <div class="container__submenu-buscador-buscador-remixers">
+                            <h5 class="titulo__remixers">
+                                <select class="select__container" name="Remixers" id="">
+                                    <option>Remixers</option>
+                                    <option>DJ Pepe</option>
+                                    <option>DJ Juan</option>
+                                    <option>DJ Lolo</option>
+                                </select>
+                            </h5>
+                        </div>
+                        <div class="container__submenu-buscador-buscador-input">
+                            <input type="search" name="" id="" placeholder="Buscar por nombre">
+                            <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path id="lupa__buscador-index" d="M14.9536 14.9458L21 21M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+       
+        <div class="container__dropdown"  (mouseleave)="onHoverLeave()">
+            <div class="container__dropdown-dropdown">
+                <ul class="container__dropdown-dropdown-btnToggle" (mouseenter)="onHover($event)">
+                    <img src="../../../assets/index-usuario/love.svg" alt="">
+                    <li>Mi cuenta</li>
+                </ul>
+                <ul class="container__dropdown-dropdown-menu " *ngIf="dropdownMenu">
+                  <li routerLink="/usuario/perfil"><a class="dropdown-item"><img src="../../../assets/index-usuario/miperfil.png" alt="">Mi Perfil</a></li>
+                  <li><a class="dropdown-item"><img src="../../../assets/index-usuario/download.svg" alt="">Descargas</a></li>
+                  <li routerLink="/usuario/membresia"><a class="dropdown-item "><img src="../../../assets/index-usuario/membrasias.png" alt="">Membresia</a></li>
+                  <li><a class="dropdown-item" routerLink="/">Cerrar Sesión</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

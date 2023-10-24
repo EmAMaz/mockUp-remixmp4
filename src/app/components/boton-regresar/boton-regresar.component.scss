@@ -1,0 +1,25 @@
+.section__button{
+    background: transparent;
+    &-btn{
+        border: none;
+        background: transparent;
+        border-radius: 20em;
+        color: #fff;
+        padding: 12px 0;
+        font-size: 1.2em;
+        cursor: pointer;
+        transition: all .1s ease-out;
+        &::before{
+            content: "<";
+            color: #fff;
+            background:transparent;
+            padding-right: 8px;
+        }
+        &:hover{
+            color: #ff3100;
+            &::before{
+                color: #ff3100;
+            }
+        }
+    }
+}

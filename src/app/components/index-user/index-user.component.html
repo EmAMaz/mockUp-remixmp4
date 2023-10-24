@@ -1,57 +1,7 @@
-<header class="container__header">
-    
-    <div class="container__menu">
-      <img class="container__menu-menu" src="../../../assets/responsive/menu-svgrepo-com.svg" (click)="mostrarMenu()" alt="">
-    </div>
-    <nav class="header__nav" >
-        <div class="container__header-logo">
-            <img src="../../../assets/index-usuario/logo-index-usuario.png" alt="">
-        </div>
-        <ul class="header__nav-enlaces" (mouseover)="openSubmenu($event)" *ngIf="menuResponsiveActivado">
-            <li><a class="header__nav-enlaces-a" routerLink="/usuario" (mouseover)="openSubmenu($event)">inicio</a></li>
-            <li><a class="header__nav-enlaces-a" (mouseover)="openSubmenu($event)">nuevos videos</a></li>
-            <li><a class="header__nav-enlaces-a" (mouseover)="openSubmenu($event)">remixes</a></li>
-            <li><a class="header__nav-enlaces-a" (mouseover)="openSubmenu($event)">generos</a></li>
-            <li><img src="../../../assets/index-usuario/search.svg" alt=""></li>
-        </ul>
+<section>
+    <app-menu-responsive [logo]=true [buscador]=true></app-menu-responsive>
+</section>
 
-        <!-- SUBMENUS REMIXES Y GENERO-->
-        <div class="container__submenu-remixes submenu-excluido" *ngIf="submenuRemixe">
-            <div class="container__submenu-remixes-close">
-                <img src="../../../assets/index-usuario/times-close.svg" alt="">
-            </div>
-            <div class="container__submenu-remixes-remixes submenu-excluido" *ngFor="let remixers of listRemixers" >
-                <ul class="submenu-excluido">
-                    <li class="submenu-excluido"><img class="submenu-excluido "src={{remixers.image}} alt=""></li>
-                    <li class="submenu-excluido">{{remixers.nombre}}</li>
-                </ul>
-            </div>
-        </div>
-        <div class="container__submenu-remixes submenu-excluido" *ngIf="submenuGeneros">
-            <div class="container__submenu-remixes-remixes submenu-excluido" *ngFor="let generos of listGeneros">
-                <ul class="submenu-excluido">
-                    <li class="submenu-excluido">{{generos.nombre}}</li>
-                </ul>
-            </div>
-        </div>
-        <!-- SUBMENUS REMIXES Y GENERO-->
-        <!-- SUBMENU MI CUENTA -->
-        <div class="container__dropdown submenu-excluido">
-            <div class="container__dropdown-dropdown submenu-excluido"  (mouseover)="openSubmenu($event)" (click)="openSubmenu($event)">
-                <button class="container__dropdown-dropdown-btnToggle submenu-excluido">
-                    <img class="submenu-excluido" src="../../../assets/index-usuario/love.svg" alt="">Mi cuenta
-                </button>
-                <ul class="container__dropdown-dropdown-menu submenu-excluido" *ngIf="dropdownMenu">
-                  <li class="submenu-excluido" routerLink="perfil"><a class="dropdown-item submenu-excluido"><img src="../../../assets/index-usuario/user-account-profile.svg" alt="" class="submenu-excluido" >Mi Perfil</a></li>
-                  <li class="submenu-excluido"><a class="dropdown-item submenu-excluido"><img src="../../../assets/index-usuario/download.svg" class="submenu-excluido" alt="">Descargas</a></li>
-                  <li class="submenu-excluido" routerLink="membresia"><a class="dropdown-item submenu-excluido"><img src="../../../assets/index-usuario/membrasias.png" class="submenu-excluido" alt="">Membresia</a></li>
-                  <li class="submenu-excluido"><a class="dropdown-item submenu-excluido" routerLink="/">Cerrar Sesión</a></li>
-                </ul>
-              </div>
-        </div>
-        <!-- SUBMENU MI CUENTA -->
-    </nav>
-</header>
 <main>
     <section class="container__banner"> 
         <img class="container__banner-image" src="../../../assets/index-usuario/banner-index-usuario.png" alt="">
@@ -63,7 +13,9 @@
                 <div class="container__double-card-recomendados">
                     <div class="container__double-card-recomendados-song" *ngFor="let song of listaSong">
                         <div class="container__double-card-recomendados-song-first">
-                            <img class="container__double-card-recomendados-song-first-image" src={{song.image}} alt="" >
+                            <div class="container__double-card-recomendados-song-first-image elemento">
+                                <img class="elemento" src={{song.image}} alt="" >
+                            </div>
                             <div class="container__double-card-recomendados-song-first-container">
                                 <p>{{song.autor}}</p>
                                 <h4>{{song.nombre}}</h4>
@@ -75,20 +27,25 @@
                             <p>{{song.puntaje}}</p>
                         </div>
                         <div class="container__double-card-recomendados-song-three">
-                            <img class="container__double-card-recomendados-song-first-image" src={{song.iconStart}} alt="" >
-                            <img class="container__double-card-recomendados-song-first-image" src={{song.iconDownload}} alt="" >
-                            <img class="container__double-card-recomendados-song-first-image" src={{song.iconLove}} alt="" >
+                            <svg width="64px" height="64px" viewBox="-3 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#fff" stroke="#fff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>play</title> <desc>Created with Sketch Beta.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-419.000000, -571.000000)" fill="#fff"> <path d="M440.415,583.554 L421.418,571.311 C420.291,570.704 419,570.767 419,572.946 L419,597.054 C419,599.046 420.385,599.36 421.418,598.689 L440.415,586.446 C441.197,585.647 441.197,584.353 440.415,583.554" id="play" sketch:type="MSShapeGroup"> </path> </g> </g> </g></svg>
+
+                            <svg fill="#ffffff" width="64px" height="64px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path id="download" d="M7.293,13.707a1,1,0,1,1,1.414-1.414L11,14.586V3a1,1,0,0,1,2,0V14.586l2.293-2.293a1,1,0,0,1,1.414,1.414l-4,4a1,1,0,0,1-.325.216.986.986,0,0,1-.764,0,1,1,0,0,1-.325-.216ZM22,12a1,1,0,0,0-1,1v7H3V13a1,1,0,0,0-2,0v8a1,1,0,0,0,1,1H22a1,1,0,0,0,1-1V13A1,1,0,0,0,22,12Z"></path></g></svg>
+
+                            <svg version="1.1" id="Uploaded to svgrepo.com" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" height="64px" viewBox="0 0 32 32" xml:space="preserve" fill="#ffffff" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .sharpcorners_een{fill:#ffffff;} .st0{fill:#ffffff;} </style> <path id="love" class="sharpcorners_een" d="M31,11c0,11-14,18-15,18S1,22,1,11c0-4.418,3.582-8,8-8c3.014,0,5.636,1.668,7,4.13 C17.364,4.668,19.986,3,23,3C27.418,3,31,6.582,31,11z"></path> </g></svg>
                         </div>
                     </div>
 
                 </div>
             </div>
-            <div >
+            <div>
                 <h2 class="container__double-card-recomendados-title"><img src="../../../assets/index-usuario/top10.png" alt="" class="image-top10">Top 10 semanal</h2>
                 <div class="container__double-card-recomendados">
                     <div class="container__double-card-recomendados-song" *ngFor="let song of listaSong">
                         <div class="container__double-card-recomendados-song-first">
-                            <img class="container__double-card-recomendados-song-first-image" src={{song.image}} alt="" >
+                            <p class="container__double-card-recomendados-song-first-number-id">{{song.id}}</p>
+                            <div class="container__double-card-recomendados-song-first-image elemento">
+                                <img class="elemento" src={{song.image}} alt="">
+                            </div>
                             <div class="container__double-card-recomendados-song-first-container">
                                 <p>{{song.autor}}</p>
                                 <h4>{{song.nombre}}</h4>
@@ -100,9 +57,11 @@
                             <p>{{song.puntaje}}</p>
                         </div>
                         <div class="container__double-card-recomendados-song-three">
-                            <img class="container__double-card-recomendados-song-first-image" src={{song.iconStart}} alt="" >
-                            <img class="container__double-card-recomendados-song-first-image" src={{song.iconDownload}} alt="" >
-                            <img class="container__double-card-recomendados-song-first-image" src={{song.iconLove}} alt="" >
+                            <svg width="64px" height="64px" viewBox="-3 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#fff" stroke="#fff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>play</title> <desc>Created with Sketch Beta.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-419.000000, -571.000000)" fill="#fff"> <path d="M440.415,583.554 L421.418,571.311 C420.291,570.704 419,570.767 419,572.946 L419,597.054 C419,599.046 420.385,599.36 421.418,598.689 L440.415,586.446 C441.197,585.647 441.197,584.353 440.415,583.554" id="play" sketch:type="MSShapeGroup"> </path> </g> </g> </g></svg>
+
+                            <svg fill="#ffffff" width="64px" height="64px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path id="download" d="M7.293,13.707a1,1,0,1,1,1.414-1.414L11,14.586V3a1,1,0,0,1,2,0V14.586l2.293-2.293a1,1,0,0,1,1.414,1.414l-4,4a1,1,0,0,1-.325.216.986.986,0,0,1-.764,0,1,1,0,0,1-.325-.216ZM22,12a1,1,0,0,0-1,1v7H3V13a1,1,0,0,0-2,0v8a1,1,0,0,0,1,1H22a1,1,0,0,0,1-1V13A1,1,0,0,0,22,12Z"></path></g></svg>
+
+                            <svg version="1.1" id="Uploaded to svgrepo.com" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" height="64px" viewBox="0 0 32 32" xml:space="preserve" fill="#ffffff" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .sharpcorners_een{fill:#ffffff;} .st0{fill:#ffffff;} </style> <path id="love" class="sharpcorners_een" d="M31,11c0,11-14,18-15,18S1,22,1,11c0-4.418,3.582-8,8-8c3.014,0,5.636,1.668,7,4.13 C17.364,4.668,19.986,3,23,3C27.418,3,31,6.582,31,11z"></path> </g></svg>
                         </div>
                     </div>
                 </div>
@@ -122,44 +81,49 @@
                 <li>Previo/Descarga</li>
             </ul>
         </div>
-        <div class="container__list-song" *ngFor="let item of songsList | paginate: { itemsPerPage: itemForPage, currentPage: numberPage}" >
-            <div class="container__list-song-card">
-                <div class="container__list-song-card-item-fecha" >
-                    <div class="container__list-song-card-item-fecha-estampas" >
-                        <img src="../../../assets/index-usuario/hot.png" alt="">
-                        <img src="../../../assets/index-usuario/new.png" alt="">
+        <div class="container__container-list">
+            <div class="container__list-song" *ngFor="let item of songsList | paginate: { itemsPerPage: itemForPage, currentPage: numberPage}" >
+                <div class="container__list-song-card">
+                    <div class="container__list-song-card-item-fecha" >
+                        <div class="container__list-song-card-item-fecha-estampas" >
+                            <img src="../../../assets/index-usuario/hot.png" alt="">
+                            <img src="../../../assets/index-usuario/new.png" alt="">
+                        </div>
+                        <p>{{item.fecha}}</p>
                     </div>
-                    <p>{{item.fecha}}</p>
-                </div>
-                <div class="container__list-song-card-item elemento" >
-                    <img class="elemento" src={{item.remixerLogo}} alt="" (mouseover)="mostrarTextoFlotante=true" (mouseout)="mostrarTextoFlotante=false">
-                    <p>{{'DJ Pepe'}}</p>
-                </div>
-                <div class="container__list-song-card-item">
-                    <p>{{item.artista}}</p>
-                </div>
-                <div class="container__list-song-card-item">
-                    <p>{{item.tema}}</p>
-                </div>
-                <div class="container__list-song-card-item">
-                    <p>{{item.version}}</p>
-                </div>
-                <div class="container__list-song-card-item">
-                    <p>{{item.bpm}}</p>
-                </div>
-                <div class="container__list-song-card-item">
-                    <p>{{item.genero}}</p>
-                </div>
-                <div class="container__list-song-card-item">
-                    <div class="container__list-song-card-item-previoDescarga">
-                        <img src={{item.iconStart}} alt="">
-                        <img src={{item.iconDownload}} alt="">
-                        <img src={{item.iconLove}} alt="">
+                    <div class="container__list-song-card-item elemento" >
+                        <img class="elemento" src={{item.remixerLogo}} alt="">
                     </div>
-                    <div class="previoDescarga__botonera">
-                        <img src="../../../assets/index-usuario/puntoverde.png" class="puntoVerdeTabla" alt="">
-                        <img src="../../../assets/index-usuario/puntoverde.png" class="puntoVerdeTabla" alt="">
-                        <img src="../../../assets/index-usuario/puntorojo.png" class="puntoVerdeTabla" alt="">
+                    <div class="container__list-song-card-item">
+                        <p>{{item.artista}}</p>
+                    </div>
+                    <div class="container__list-song-card-item">
+                        <p>{{item.tema}}</p>
+                    </div>
+                    <div class="container__list-song-card-item">
+                        <p>{{item.version}}</p>
+                    </div>
+                    <div class="container__list-song-card-item">
+                        <p>{{item.bpm}}</p>
+                    </div>
+                    <div class="container__list-song-card-item">
+                        <p>{{item.genero}}</p>
+                    </div>
+                    <div class="container__list-song-card-item">
+                        <div class="container__list-song-card-item-previoDescarga">
+
+                            <svg class="svg-previoDescarga" width="64px" height="64px" viewBox="-3 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#fff" stroke="#fff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>play</title> <desc>Created with Sketch Beta.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-419.000000, -571.000000)" fill="#fff"> <path d="M440.415,583.554 L421.418,571.311 C420.291,570.704 419,570.767 419,572.946 L419,597.054 C419,599.046 420.385,599.36 421.418,598.689 L440.415,586.446 C441.197,585.647 441.197,584.353 440.415,583.554" id="play" sketch:type="MSShapeGroup"> </path> </g> </g> </g></svg>
+
+                            <svg class="svg-previoDescarga" fill="#ffffff" width="64px" height="64px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path id="download" d="M7.293,13.707a1,1,0,1,1,1.414-1.414L11,14.586V3a1,1,0,0,1,2,0V14.586l2.293-2.293a1,1,0,0,1,1.414,1.414l-4,4a1,1,0,0,1-.325.216.986.986,0,0,1-.764,0,1,1,0,0,1-.325-.216ZM22,12a1,1,0,0,0-1,1v7H3V13a1,1,0,0,0-2,0v8a1,1,0,0,0,1,1H22a1,1,0,0,0,1-1V13A1,1,0,0,0,22,12Z"></path></g></svg>
+
+                            <svg class="svg-previoDescarga" version="1.1" id="Uploaded to svgrepo.com" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" height="64px" viewBox="0 0 32 32" xml:space="preserve" fill="#ffffff" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .sharpcorners_een{fill:#ffffff;} .st0{fill:#ffffff;} </style> <path id="love" class="sharpcorners_een" d="M31,11c0,11-14,18-15,18S1,22,1,11c0-4.418,3.582-8,8-8c3.014,0,5.636,1.668,7,4.13 C17.364,4.668,19.986,3,23,3C27.418,3,31,6.582,31,11z"></path> </g></svg>
+
+                        </div>
+                        <div class="previoDescarga__botonera">
+                            <img src="../../../assets/index-usuario/puntoverde.png" class="puntoVerdeTabla" alt="">
+                            <img src="../../../assets/index-usuario/puntoverde.png" class="puntoVerdeTabla" alt="">
+                            <img src="../../../assets/index-usuario/puntorojo.png" class="puntoVerdeTabla" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -199,4 +163,3 @@
 <section class="container__footer">
     <app-footer></app-footer>
 </section>
-  

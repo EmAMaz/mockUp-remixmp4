@@ -8,6 +8,13 @@ import { Component, Renderer2 } from '@angular/core';
 export class MembresiaUserComponent{
   public screenResolution?: string;
   public isOpen:boolean = true;
+  public rutaCustom:string = "/usuario";
+  dropdownMenu = false;
+  submenuRemixe = false;
+  submenuGeneros = false;
+  submenuBuscador = false;
+  menuResponsiveActivado = false;
+
   cardMembresiaList = [] = [
     {titulo: "ESTANDAR",
     precio: "30.00",
@@ -45,15 +52,51 @@ export class MembresiaUserComponent{
   getScreenResolution() {
     this.screenResolution = `${window.innerWidth} x ${window.innerHeight}`;
     
-    if(window.innerWidth < 802){
-      this.isOpen = false;
+    if(window.innerWidth < 1162){
+      this.menuResponsiveActivado = false;
     }else{
-      this.isOpen = true;
+      this.menuResponsiveActivado = true;
     }
   }
   openMenu() {
     this.isOpen = !this.isOpen;
   }
-    
+  onHover($event:any) {
+    console.log($event.srcElement.id)
+    if($event.target.outerText.toLowerCase() === "remixers"){
+      this.submenuGeneros = false;
+      this.submenuBuscador = false;
+      this.submenuRemixe = true;
+    }else if($event.target.outerText.toLowerCase() === "generos"){
+      this.submenuRemixe = false;
+      this.submenuBuscador = false;
+      this.submenuGeneros = true;
+    }else if($event.target.outerText.toLowerCase() === "mi cuenta"){
+      this.submenuRemixe = false;
+      this.submenuGeneros = false;
+      this.submenuBuscador = false;
+      this.dropdownMenu = true;
+    }else if($event.srcElement.id === "buscador"){
+      this.submenuRemixe = false;
+      this.submenuGeneros = false;
+      this.dropdownMenu = false;
+      this.submenuBuscador = true;
+    }else{
+      this.dropdownMenu = false;
+      this.submenuRemixe = false;
+      this.submenuGeneros = false;
+    }
+  }
+  onHoverLeave() {
+    this.dropdownMenu = false;
+    this.submenuRemixe = false;
+    this.submenuGeneros = false;
+  }
+  exitSearch(){
+    this.submenuBuscador = false;
+  }
+  mostrarMenu(){
+    this.menuResponsiveActivado = !this.menuResponsiveActivado;
+  } 
   
 }
