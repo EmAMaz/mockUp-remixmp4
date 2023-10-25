@@ -7,7 +7,7 @@
         <div class="container__preguntas-titulo">
             <h2>PREGUNTAS FRECUENTES</h2>    
         </div>
-        <div class="container__col-preguntas-preguntas">
+        <!-- <div class="container__col-preguntas-preguntas">
             <div class="container__col-preguntas" *ngFor="let indice of listPreguntas; index as i">
                 <div class="container__col-preguntas-card">
                     <div class="container__col-preguntas-card-titulo" >
@@ -19,6 +19,23 @@
                         </h2>
                     </div>
                     <p *ngIf="(i === selectedCheck) && (masMenos)">{{indice.respuesta}}</p>
+                </div>
+            </div>
+        </div> -->
+        <div class="container__col-preguntas-preguntas">
+            <div class="container__col-preguntas" *ngFor="let indice of listPreguntas; index as i">
+                <div class="container__col-preguntas-card">
+                    <div class="container__col-preguntas-card-titulo" >
+                        <h2 class="card__titulo" id={{indice.id}}>{{indice.titulo}}
+                            <div>
+                                <img src="../../../assets/addition.svg" alt="" [ngClass]="{'hidden' : i === visible }" (click)="mostrarTexto(i)">
+                                <img src="../../../assets/dash.svg" alt="" [ngClass]="{'hidden' : i === btnMenos }" *ngIf="(i === selectedCheck)" (click)="ocultarTexto(i)">
+                            </div>
+                        </h2>
+                        <p  *ngIf="(i === selectedCheck) && (masMenos)">{{indice.respuesta}}</p>
+                    </div>
+                    
+                    
                 </div>
             </div>
         </div>

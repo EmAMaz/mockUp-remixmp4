@@ -146,6 +146,10 @@
                     font-size: 17px;
                     font-weight: 500;
                     letter-spacing: 1px;
+                    position: absolute;
+                    z-index: 9999;
+                    margin: 15px 0;
+                    left: 0;
                 }
             }
         }

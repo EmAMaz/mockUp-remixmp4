@@ -10,7 +10,7 @@
             <li><a class="header__nav-enlaces-a" (mouseenter)="onHover($event)" routerLink="/usuario" >nuevos videos</a></li>
             <li><a class="header__nav-enlaces-a" (mouseenter)="onHover($event)">remixers</a></li>
             <li><a class="header__nav-enlaces-a" (mouseenter)="onHover($event)">generos</a></li>
-            <li *ngIf=buscador><img src="../../../assets/index-usuario/search.svg" alt="" (click)="onHover($event)" id="buscador"></li>
+            <li *ngIf=buscador (mouseenter)="onHover($event)" id="buscador"><img src="../../../assets/index-usuario/search.svg" alt=""></li>
         </ul>
         <div class="container__submenu-remixes submenu-excluido" *ngIf="submenuRemixe" (mouseleave)="onHoverLeave()">
             <div class="container__submenu-remixes-close" (click)=onHoverLeave()>
